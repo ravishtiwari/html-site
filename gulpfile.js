@@ -3,10 +3,12 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-
+var plumber    = require('gulp-plumber');
 var $ = require('gulp-load-plugins')();
-// var DIST_DIR = "dist";
 
+var onError = function(err) {
+  console.log(err);
+} ;
 gulp.task('styles', function () {
   return gulp.src('src/assets/css/main.scss')
     .pipe(sass({
@@ -19,8 +21,12 @@ gulp.task('styles', function () {
 
 gulp.task('jshint', function() {
   return gulp.src('src/assets/js/*.js')
+    .pipe(plumber({
+      errorHandler: onError
+    }))
     .pipe($.jshint())
     .pipe($.jshint.reporter('default'))
+    .pipe($.jshint.reporter('fail'))
     .pipe($.notify({ message: 'JS Hinting task complete' }));
 });
 
@@ -71,11 +77,11 @@ gulp.task('serve', ['connect', 'watch'], function () {
 });
 
 gulp.task('watch',['jshint','connect'], function() {
-  gulp.watch('./src/assets/css/**/*.scss', ['styles']);
-  gulp.watch('./src/assets/js/*.js', ['jshint', 'scripts']);
-  gulp.watch('./src/assets/img/**/*', ['images']);
+  gulp.watch('src/assets/css/**/*.scss', ['styles']);
+  gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
+  gulp.watch('src/assets/img/**/*', ['images']);
   var server = $.livereload();
-  gulp.watch(['./src/**']).on('change', server.changed);
+  gulp.watch(['src/**']).on('change', server.changed);
   $.livereload.listen();
 });
 
