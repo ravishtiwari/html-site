@@ -9,15 +9,22 @@ var $ = require('gulp-load-plugins')();
 var onError = function(err) {
   console.log(err);
 } ;
+
+gulp.task('copycss', function() {
+  gulp.src('src/assets/css/bootstrap.css')
+  .pipe(gulp.dest('dist/assets/css/'));
+  
+  gulp.src('src/assets/css/font-awesome.min.css')
+  .pipe(gulp.dest('dist/assets/css/'));
+});
+
 gulp.task('styles', function () {
   return gulp.src('src/assets/css/main.scss')
-    .pipe(sass({
-      style: 'expanded',
-      precision: 10
-    }))
+    .pipe(sass())
     .pipe(gulp.dest('src/assets/css/'))
     .pipe(gulp.dest('dist/assets/css/'));
 });
+
 
 gulp.task('jshint', function() {
   return gulp.src('src/assets/js/*.js')
@@ -36,7 +43,7 @@ gulp.task('scripts', function() {
       .pipe($.notify({ message: 'Scripts task complete' }));
 });
 
-gulp.task('html', ['styles'], function () {
+gulp.task('html', ['styles','copycss'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,src}'});
   return gulp.src('src/*.html')
     .pipe(assets)
@@ -63,8 +70,8 @@ gulp.task('connect', ['styles'], function () {
   var app = require('connect')()
     .use(require('connect-livereload')({port: 35729}))
     .use(serveStatic('.tmp'))
-    .use(serveStatic('src'))
-    .use(serveIndex('src'));
+    .use(serveStatic('dist'))
+    .use(serveIndex('dist'));
   require('http').createServer(app)
   .listen(9000)
   .on('listening', function () {
@@ -76,7 +83,7 @@ gulp.task('serve', ['connect', 'watch'], function () {
   require('opn')('http://localhost:9000');
 });
 
-gulp.task('watch',['jshint','connect'], function() {
+gulp.task('watch',['build','connect'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
@@ -85,7 +92,8 @@ gulp.task('watch',['jshint','connect'], function() {
   $.livereload.listen();
 });
 
-gulp.task('build', ['jshint','scripts', 'html', 'images', 'fonts','styles'], function () {
+gulp.task('build',
+      ['jshint','scripts', 'html', 'images', 'fonts','styles','copycss'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build'}));
 });
 
