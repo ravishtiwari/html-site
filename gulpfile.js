@@ -8,14 +8,11 @@ var $ = require('gulp-load-plugins')();
 
 var onError = function(err) {
   console.log(err);
-} ;
+};
 
 gulp.task('copycss', function() {
-  gulp.src('src/assets/css/bootstrap.css')
-  .pipe(gulp.dest('dist/assets/css/'));
-  
-  gulp.src('src/assets/css/font-awesome.min.css')
-  .pipe(gulp.dest('dist/assets/css/'));
+  gulp.src('src/assets/css/bootstrap.css').pipe(gulp.dest('dist/assets/css/'));
+  gulp.src('src/assets/css/font-awesome.min.css').pipe(gulp.dest('dist/assets/css/'));
 });
 
 gulp.task('styles', function () {
