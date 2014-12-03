@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans" type="text/css">
+  <title>Accessibility Video Demo</title>
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/main.css" rel="stylesheet">
+  <style>
+  body {
+    background: #111;
+    color: white;
+    font-family: "Open Sans";
+  }
+  video {
+    -webkit-box-reflect: below 5px -webkit-linear-gradient(top, transparent, transparent 80%, rgba(255,255,255,0.2));
+  }
+  section {
+    text-align: center;
+    margin-top: 5em;
+  }
+  section > div {
+    margin-top: 2em;
+    text-align: center;
+    -webkit-perspective: 800;
+    -webkit-transform-style: preserve-3d;
+  }
+  section > div > div:last-child {
+    position: relative;
+    top: -36px;
+  }
+  section > div > div {
+    opacity: 0;
+    font-size: 25px;
+    -webkit-transition: all 500ms ease-in-out;
+    -webkit-transform-origin: 50% 100%;
+    -webkit-transform: rotateX(-90deg);
+  }
+  section > div > div.on {
+    opacity: 1;
+    -webkit-transform: rotateX(0);
+  }
+  details {
+    color: black;
+  }
+  </style>
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">SP<i class="fa fa-circle"></i>T</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="services.html">SERVICES</a></li>
+          <li><a href="works.html">WORKS</a></li>
+          <li class="active"><a href="test.html">VIDEO</a></li>
+          <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+  <section>
+    <video autoplay controls title="My Movie" tabindex="0">
+      <source  src="big_buck_bunny.webm" type="video/webm" />
+      <track src="test.vtt" label="English subtitles" kind="subtitles" srclang="en" default />
+      Your browser does not support the video tag
+    </video>
+    <div><div>test1</div><div>asdf2</div></div>
+  </section>
+
+
+  <script>
+  if (!document.createElement('track').track)  {
+    alert('<track is not available in your browser.');
+  }
+
+  var video = document.querySelector('video');
+  var span1 = document.querySelector('section > div :first-child');
+  var span2 = document.querySelector('section > div :last-of-type');
+
+  var track = video.textTracks[0];
+  track.mode = 'hidden';
+
+  console.log(track);
+  var idx = 0;
+
+  track.oncuechange = function(e) {
+
+    var cue = this.activeCues[0];
+    if (cue) {
+      if (idx == 0) {
+        span2.className = '';
+        span1.classList.remove('on');
+        span1.innerHTML = '';
+        span1.appendChild(cue.getCueAsHTML());
+        span1.classList.add('on');
+      } else {
+        span1.className = '';
+        span2.classList.remove('on');
+        span2.innerHTML = '';
+        span2.appendChild(cue.getCueAsHTML());
+        span2.classList.add('on');
+      }
+
+      idx = ++idx % 2;
+    }
+  };
+  </script>
+  <!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+</html>
