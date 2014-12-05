@@ -10,7 +10,7 @@ var onError = function(err) {
   console.log(err);
 };
 
-var filesToMove = ['src/*.webm','src/*.vtt'];
+var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
 
 gulp.task('copyfiles', function(){
   gulp.src(filesToMove).pipe(gulp.dest('dist'));
