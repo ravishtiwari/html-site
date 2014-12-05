@@ -41,11 +41,11 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="index.html">HOME</a></li>
+            <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="works.html">WORKS</a></li>
-            <li><a href="test.html">VIDEO</a></li>
+            <li  class="active"><a href="video.html">VIDEO</a></li>
             <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -53,15 +53,19 @@
     </div>
   </nav>
 
-
-  <div class="container w">
-    <video controls aria-label="my video">
-          <source src="mov_bbb.ogg" type="video/ogg"/>
-          <source src="big_buck_bunny.webm" type="video/webm"/>
-          <source src="mov_bbb.mp4" type="video/mp4"/>
-          <p aria-hidden="true" aria-visibility="false"> HTML5 Video not supported. </p>
-    </video>
-
+  <div class="container wb">
+    <div>
+      <h1>Accessible video demo</h1>
+      <p>Video below demostrates how accessiblity in HTML5 videos works.
+        All controls are native and that's why they look different on different browsers.
+      </p>
+      <video controls aria-label="my video">
+            <source src="mov_bbb.ogg" type="video/ogg"/>
+            <source src="big_buck_bunny.webm" type="video/webm"/>
+            <source src="mov_bbb.mp4" type="video/mp4"/>
+            <p aria-hidden="true" aria-visibility="false"> HTML5 Video not supported. </p>
+      </video>
+    </div>
   </div>
   </body>
 </html>
