@@ -55,25 +55,13 @@
 
 
   <div class="container w">
-    <!--[if IE]>
     <video controls aria-label="my video">
-      <source src="http://ie.microsoft.com/testdrive/Videos/BehindIE9ModernWebStandards/Video.mp4" type="video/mp4"/>
+          <source src="mov_bbb.ogg" type="video/ogg"/>
+          <source src="big_buck_bunny.webm" type="video/webm"/>
+          <source src="mov_bbb.mp4" type="video/mp4"/>
+          <p aria-hidden="true" aria-visibility="false"> HTML5 Video not supported. </p>
+    </video>
 
-      <track id="entrack" label="English subtitles" kind="captions" src="test.vtt" srclang="en" default />
-      <track id="sptrack" label="Spanish subtitles" kind="captions" src="estrack.vtt" srclang="es" />
-      <track id="detrack" label="German subtitles" kind="captions" src="detrack.vtt" srclang="de" />
-      HTML5 Video not supported
-    </video>
-    <![endif]-->
-    <!-[if !IE]>
-      <video controls aria-label="my video">
-      <source src="big_buck_bunny.webm" type="video/webm"/>
-      <track id="entrack" label="English subtitles" kind="captions" src="test.vtt" srclang="en" default />
-      <track id="sptrack" label="Spanish subtitles" kind="captions" src="estrack.vtt" srclang="es" />
-      <track id="detrack" label="German subtitles" kind="captions" src="detrack.vtt" srclang="de" />
-      HTML5 Video not supported
-    </video>
-  <![endif]-->
   </div>
   </body>
 </html>
