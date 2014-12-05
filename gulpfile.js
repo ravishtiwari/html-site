@@ -10,6 +10,12 @@ var onError = function(err) {
   console.log(err);
 };
 
+var filesToMove = ['src/*.webm','src/*.vtt'];
+
+gulp.task('copyfiles', function(){
+  gulp.src(filesToMove).pipe(gulp.dest('dist'));
+});
+
 gulp.task('copycss', function() {
   gulp.src('src/assets/css/bootstrap.css').pipe(gulp.dest('dist/assets/css/'));
   gulp.src('src/assets/css/font-awesome.min.css').pipe(gulp.dest('dist/assets/css/'));
@@ -40,7 +46,7 @@ gulp.task('scripts', function() {
       .pipe($.notify({ message: 'Scripts task complete' }));
 });
 
-gulp.task('html', ['styles','copycss'], function () {
+gulp.task('html', ['styles','copycss','copyfiles'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,src}'});
   return gulp.src('src/*.html')
     .pipe(assets)
@@ -80,17 +86,18 @@ gulp.task('serve', ['connect', 'watch'], function () {
   require('opn')('http://localhost:9000');
 });
 
-gulp.task('watch',['build','connect'], function() {
+gulp.task('watch',['build'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
+  gulp.watch('src/*.*', ['html']);
   var server = $.livereload();
   gulp.watch(['src/**']).on('change', server.changed);
   $.livereload.listen();
 });
 
 gulp.task('build',
-      ['jshint','scripts', 'html', 'images', 'fonts','styles','copycss'], function () {
+  ['jshint','scripts', 'html', 'images', 'fonts','styles','copycss'], function () {
   return gulp.src('dist/**/*').pipe($.size({title: 'build'}));
 });
 
