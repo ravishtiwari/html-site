@@ -86,7 +86,7 @@ gulp.task('serve', ['connect', 'watch'], function () {
   require('opn')('http://localhost:9000');
 });
 
-gulp.task('watch',['build'], function() {
+gulp.task('watch',['build','connect'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
