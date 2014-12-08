@@ -13,12 +13,13 @@ var onError = function(err) {
 var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
 
 gulp.task('copyfiles', function(){
-  gulp.src(filesToMove).pipe(gulp.dest('dist'));
+  gulp.src(filesToMove).pipe(gulp.dest('dist/'));
 });
 
 gulp.task('copycss', function() {
   gulp.src('src/assets/css/bootstrap.css').pipe(gulp.dest('dist/assets/css/'));
   gulp.src('src/assets/css/font-awesome.min.css').pipe(gulp.dest('dist/assets/css/'));
+  gulp.src('src/assets/vendor/**/*.*').pipe(gulp.dest('dist/assets/vendor/'));
 });
 
 gulp.task('styles', function () {

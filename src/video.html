@@ -16,7 +16,27 @@
 
   <!-- Custom styles for this template -->
   <link href="assets/css/main.css" rel="stylesheet">
-
+  <link href="assets/vendor/paypal/videoplayer/css/px-video.css" rel="stylesheet">
+  <style>
+  /*** for demo only ***/
+  #wrapper {
+    width: 640px;
+    margin: 1em auto;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+  #brand a,
+  p a {
+    border: 1px #fff dotted;
+  }
+  #brand a:focus,
+  p a:focus {
+    border: 1px #999 dotted;
+    outline: none;
+  }
+  p {
+    padding-top: 1em;
+  }
+  </style>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -54,18 +74,38 @@
   </nav>
 
   <div class="container wb">
-    <div>
-      <h1>Accessible video demo</h1>
-      <p>Video below demostrates how accessiblity in HTML5 videos works.
-        All controls are native and that's why they look different on different browsers.
-      </p>
-      <video controls aria-label="my video">
-            <source src="mov_bbb.ogg" type="video/ogg"/>
-            <source src="big_buck_bunny.webm" type="video/webm"/>
-            <source src="mov_bbb.mp4" type="video/mp4"/>
-            <p aria-hidden="true" aria-visibility="false"> HTML5 Video not supported. </p>
-      </video>
-    </div>
+
+    <h1>Accessible video Player demo</h1>
+    <p>Video below demostrates how accessiblity in HTML5 videos works.
+      All controls are native and that's why they look different on different browsers.
+    </p>
+
+    <div class="px-video-container" id="myvid" tabindex="0" title="Accessible video Player demo">
+      <div class="px-video-img-captions-container">
+        <div class="px-video-captions hide"></div>
+        <video width="640" height="360" poster="assets/img/poster_Austin2.jpg"
+        controls  tabindex="0" aria-label="Accessible video Player demo">
+          <!-- video files -->
+          <source src="mov_bbb.ogg" type="video/ogg"/>
+          <source src="big_buck_bunny.webm" type="video/webm" />
+          <source src="mov_bbb.mp4" type="video/mp4" />
+        </video>
+      </div><!-- end container for captions and video -->
+      <div class="px-video-controls">dafasdf</div>
+    </div><!-- end video container -->
+
   </div>
+  <script src="assets/vendor/paypal/videoplayer/js/px-video.js"></script>
+  <script>
+  // Initialize
+  new InitPxVideo({
+    "videoId": "myvid",
+    "captionsOnDefault": true,
+    "seekInterval": 20,
+    "videoTitle": "Video Demo by Ravish",
+    "debug": true
+  });
+  </script>
+
   </body>
 </html>
