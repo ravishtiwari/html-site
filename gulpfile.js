@@ -12,14 +12,19 @@ var onError = function(err) {
 
 var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
 
-gulp.task('copyfiles', function(){
+gulp.task('copyfiles',['copyvendors'], function(){
   gulp.src(filesToMove).pipe(gulp.dest('dist/'));
+
 });
 
-gulp.task('copycss', function() {
+gulp.task('copyvendors', function(){
+  //Copy Vendor assets to dist directory
+  gulp.src('src/assets/vendor/**/*.*').pipe(gulp.dest('dist/assets/vendor/'));
+});
+
+gulp.task('copycss',['copyfiles'], function() {
   gulp.src('src/assets/css/bootstrap.css').pipe(gulp.dest('dist/assets/css/'));
   gulp.src('src/assets/css/font-awesome.min.css').pipe(gulp.dest('dist/assets/css/'));
-  gulp.src('src/assets/vendor/**/*.*').pipe(gulp.dest('dist/assets/vendor/'));
 });
 
 gulp.task('styles', function () {
@@ -47,7 +52,7 @@ gulp.task('scripts', function() {
       .pipe($.notify({ message: 'Scripts task complete' }));
 });
 
-gulp.task('html', ['styles','copycss','copyfiles'], function () {
+gulp.task('html', ['styles','copyfiles'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,src}'});
   return gulp.src('src/*.html')
     .pipe(assets)
@@ -91,6 +96,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
+  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);  
   gulp.watch('src/*.*', ['html']);
   var server = $.livereload();
   gulp.watch(['src/**']).on('change', server.changed);
