@@ -1,8 +1,0 @@
-html/video.mov
-
-html/test.php
-
-# build resources to ignore
-node_modules
-build
-products

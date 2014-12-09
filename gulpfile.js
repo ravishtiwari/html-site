@@ -10,10 +10,10 @@ var onError = function(err) {
   console.log(err);
 };
 
-var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
+// var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(filesToMove).pipe(gulp.dest('dist/'));
+  gulp.src('src/assets/videos/**/*.*').pipe(gulp.dest('dist/assets/videos/'));
 
 });
 
@@ -96,7 +96,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
-  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);  
+  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);
   gulp.watch('src/*.*', ['html']);
   var server = $.livereload();
   gulp.watch(['src/**']).on('change', server.changed);
