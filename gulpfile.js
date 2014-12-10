@@ -18,7 +18,8 @@ var onError = function(err) {
 };
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 gulp.task('package', function(callback){
   sequence(
@@ -45,12 +46,14 @@ gulp.task('make-build', function(){
 });
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 
 gulp.task('copyvendors', function(){
   //Copy Vendor assets to dist directory
-  gulp.src(SRC_DIR+'/assets/vendor/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
+  gulp.src(SRC_DIR+'/assets/vendor/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
 });
 
 gulp.task('copycss',['copyfiles'], function() {
@@ -62,11 +65,9 @@ gulp.task('copycss',['copyfiles'], function() {
 
 gulp.task('styles', function () {
   return gulp.src(SRC_DIR+'/assets/css/main.scss')
-    .pipe(sass())
-    .pipe(gulp.dest(SRC_DIR+'/assets/css/'))
+    .pipe(sass())    
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
-
 
 gulp.task('jshint', function() {
   return gulp.src(SRC_DIR+'/assets/js/*.js')
