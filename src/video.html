@@ -8,44 +8,57 @@
   <meta name="author" content="">
   <link rel="shortcut icon" href="assets/ico/favicon.png">
 
-  <title>SPOT - Free Bootstrap 3 Theme</title>
+  <title>KED: Video : Accessible video player demo</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="assets/css/bootstrap.css" rel="stylesheet">
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+  <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
   <link href="assets/css/main.css" rel="stylesheet">
-  <link href="assets/vendor/paypal/videoplayer/css/px-video.css" rel="stylesheet">
-  <style>
-  /*** for demo only ***/
-  #wrapper {
-    width: 640px;
-    margin: 1em auto;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-  }
-  #brand a,
-  p a {
-    border: 1px #fff dotted;
-  }
-  #brand a:focus,
-  p a:focus {
-    border: 1px #999 dotted;
-    outline: none;
-  }
-  p {
-    padding-top: 1em;
-  }
-  </style>
 
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/framework/fss/css/fss-layout.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/framework/fss/css/fss-text.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
+  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
+
+  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/jquery-ui/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
+  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/css/VideoPlayer.css" rel="stylesheet" />
+  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/captionator/css/captions.css" rel="stylesheet" />
   <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/css/ltie9.css" rel="stylesheet" />
   <![endif]-->
+
+  <!-- Fluid and jQuery Dependencies -->
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/infusion/MyInfusion.js"></script>
+  <!-- Utils -->
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/jquery-ui/js/jquery.ui.button.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/captionator/js/captionator.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/mediaelement/js/mediaelement.js"></script>
+  <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/html5shiv/js/html5shiv.js"></script>
+  <![endif]-->
+  <!-- VideoPlayer dependencies -->
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_framework.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_showHide.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_html5Captionator.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_controllers.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/ToggleButton.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/MenuButton.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_media.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_transcript.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_intervalEventsConductor.js"></script>
+  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_uiOptions.js"></script>
+
 </head>
 
 <body>
+
 
   <!-- Fixed navbar -->
   <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,38 +87,97 @@
   </nav>
 
   <div class="container wb">
-
-    <h1>Accessible video Player demo</h1>
-    <p>Video below demostrates how accessiblity in HTML5 videos works.
-      All controls are native and that's why they look different on different browsers.
-    </p>
-
-    <div class="px-video-container" id="myvid" tabindex="0" title="Accessible video Player demo">
-      <div class="px-video-img-captions-container">
-        <div class="px-video-captions hide"></div>
-        <video width="640" height="360" poster="assets/img/poster_Austin2.jpg"
-        controls  tabindex="0" aria-label="Accessible video Player demo">
-          <!-- video files -->
-          <source src="mov_bbb.ogg" type="video/ogg"/>
-          <source src="big_buck_bunny.webm" type="video/webm" />
-          <source src="mov_bbb.mp4" type="video/mp4" />
-        </video>
-      </div><!-- end container for captions and video -->
-      <div class="px-video-controls">dafasdf</div>
-    </div><!-- end video container -->
-
-  </div>
-  <script src="assets/vendor/paypal/videoplayer/js/px-video.js"></script>
   <script>
-  // Initialize
-  new InitPxVideo({
-    "videoId": "myvid",
-    "captionsOnDefault": true,
-    "seekInterval": 20,
-    "videoTitle": "Video Demo by Ravish",
-    "debug": true
+  fluid.pageEnhancer({
+    tocTemplate: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/tableOfContents/html/TableOfContents.html"
   });
   </script>
 
+  <div class="flc-uiOptions fl-uiOptions-fatPanel">
+    <div class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
+    <!-- <div class="fl-panelBar">
+    <button class="flc-slidingPanel-toggleButton fl-toggleButton">Show/Hide</button>
+  </div> -->
+</div>
+<div class="flc-toc-tocContainer"> </div>
+
+
+
+<div class="videoPlayer fl-videoPlayer">
+</div>
+
+<script>
+var uiOptions = fluid.uiOptions.fatPanel.withMediaPanel(".flc-uiOptions", {
+  prefix: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/html/",
+  components: {
+    relay: {
+      type: "fluid.videoPlayer.relay"
+    }
+  }
+  ,
+  templateLoader: {
+    options: {
+      templates: {
+        mediaControls: "assets/vendor/fluid-project/videoPlayer/html/UIOptionsTemplate-media.html"
+      }
+    }
+  }
+});
+
+var videoOptions = {container: ".videoPlayer", options: {
+  video: {
+    sources: [
+    {
+      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.mp4",
+      type: "video/mp4"
+    },
+    {
+      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.webm",
+      type: "video/webm"
+    },
+    {
+      src: "http://www.youtube.com/v/_VxQEPw1x9E",
+      type: "video/youtube"
+    }
+    ],
+    captions: [
+    {
+      src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
+      type: "text/amarajson",
+      srclang: "en",
+      label: "English"
+    },
+    {
+      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.fr.vtt",
+      type: "text/vtt",
+      srclang: "fr",
+      label: "French"
+    }
+    ],
+    transcripts: [
+    {
+      // TO TEST the transcript processing of Universal Subtitles files for transcripts,
+      // substititute the following two lines
+      src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
+      type: "text/amarajson",
+
+      //src: "videos/ReorganizeFuture/ReorganizeFuture.transcripts.en.json",
+      //type: "JSONcc",
+      srclang: "en",
+      label: "English"
+    },
+    {
+      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.transcripts.fr.json",
+      type: "JSONcc",
+      srclang: "fr",
+      label: "French"
+    }
+    ]
+  },
+  videoTitle: "A chance to reorganize our future?"
+}};
+fluid.videoPlayer.makeEnhancedInstances(videoOptions, uiOptions.relay);
+</script>
+  </div>
   </body>
 </html>

@@ -5,16 +5,43 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 var plumber    = require('gulp-plumber');
 var $ = require('gulp-load-plugins')();
+var tar = require('gulp-tar');
+var gzip = require('gulp-gzip');
+var sequence = require('run-sequence');
 
 var onError = function(err) {
   console.log(err);
 };
 
-var filesToMove = ['src/*.webm','src/*.vtt', 'src/*.mp4','src/*.ogg'];
+gulp.task('copyfiles',['copyvendors'], function(){
+  gulp.src('src/assets/videos/**/*.*').pipe(gulp.dest('dist/assets/videos/'));
+});
+gulp.task('package', function(callback){
+  sequence(
+    'clean',
+    'build',
+    'copybuild',
+    'make-build',
+    'clean',
+    callback
+  );
+});
+gulp.task('copybuild', function(){
+  return gulp.src('dist/**/*.*')
+  .pipe(
+    gulp.dest('.tmp/html-site/')
+  );
+});
+
+gulp.task('make-build', function(){
+  return gulp.src('.tmp/**/*.*').pipe(tar('build.tar'))
+  .pipe(gzip())
+  .pipe(gulp.dest('builds/'))
+  .pipe($.notify({ message: 'Build Packaged' }));
+});
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(filesToMove).pipe(gulp.dest('dist/'));
-
+  gulp.src('src/assets/videos/**/*.*').pipe(gulp.dest('dist/assets/videos/'));
 });
 
 gulp.task('copyvendors', function(){
@@ -42,14 +69,13 @@ gulp.task('jshint', function() {
     }))
     .pipe($.jshint())
     .pipe($.jshint.reporter('default'))
-    .pipe($.jshint.reporter('fail'))
-    .pipe($.notify({ message: 'JS Hinting task complete' }));
+    .pipe($.jshint.reporter('fail'));
 });
 
 gulp.task('scripts', function() {
   return gulp.src('src/assets/js/**/*.js')
-      .pipe(gulp.dest('dist/assets/js'))
-      .pipe($.notify({ message: 'Scripts task complete' }));
+      .pipe(gulp.dest('dist/assets/js'));
+
 });
 
 gulp.task('html', ['styles','copyfiles'], function () {
@@ -96,7 +122,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch('src/assets/css/**/*.scss', ['styles']);
   gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch('src/assets/img/**/*', ['images']);
-  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);  
+  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);
   gulp.watch('src/*.*', ['html']);
   var server = $.livereload();
   gulp.watch(['src/**']).on('change', server.changed);
