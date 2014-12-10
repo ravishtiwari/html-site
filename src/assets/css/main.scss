@@ -57,7 +57,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
+    color: #ff7878;
     text-decoration: none;
     outline: 0;
 }
@@ -129,7 +129,7 @@ hr {
     transition: all 0.5s ease;
 }
 
-.tilt:hover {
+.tilt:hover{
     -webkit-transform: rotate(-10deg);
     -moz-transform: rotate(-10deg);
     -o-transform: rotate(-10deg);
@@ -414,6 +414,17 @@ Pricing Tables
     background: #1abc9c;
 }
 
+
+
+
+.pricing-signup:focus{
+  background: #ff7878;
+}
+
 .pricing-option .pricing-signup:hover {
     background: #ff7878;
+}
+
+.foc-twitter:focus{
+  background: red;
 }
