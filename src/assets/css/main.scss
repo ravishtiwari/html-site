@@ -57,7 +57,7 @@ a {
 
 a:hover,
 a:focus {
-    color: #7b7b7b;
+    color: #ff7878;
     text-decoration: none;
     outline: 0;
 }
@@ -414,6 +414,17 @@ Pricing Tables
     background: #1abc9c;
 }
 
+
+
+
+.pricing-signup:focus{
+  background: #ff7878;
+}
+
 .pricing-option .pricing-signup:hover {
     background: #ff7878;
+}
+
+.foc-twitter:focus{
+  background: red;
 }
