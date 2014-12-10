@@ -45,7 +45,7 @@ p {
 
 /* Links */
 a {
-    color: #f85c37;
+    color: text-contrast($body-backgroud-color);
     word-wrap: break-word;
 
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -205,18 +205,18 @@ Wrap Sections
 
 /* Red Wrap */
 #r {
-    background: #ff7878;
+    background: $div-blue-backgroud;
     padding-top: 35px;
     padding-bottom: 35px;
 }
 
 #r h4 {
-    color: white;
+    color: text-contrast($div-blue-backgroud);
     font-weight: 700;
 }
 
 #r p {
-    color: white;
+        color:text-contrast($div-blue-backgroud);
 }
 
 /* Blue Wrap */
@@ -228,12 +228,12 @@ Wrap Sections
 }
 
 #blue h4 {
-    color: white;
+    color: text-contrast($div-blue-backgroud);
     font-weight: 700;
 }
 
 #blue p {
-    color: white;
+      color: text-contrast($div-blue-backgroud);
 }
 
 
