@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Testing dialog</title>
+</head>
+<body>
+  <button id="open-dialog" type="button">Open Dialog</button>
+  <div id="dialog" role="dialog" aria-label="This is the dialog label" aria-hidden="true"
+
+  style="border: 5px solid red; display: none;">
+
+  Some dialog text
+  <button id="close-dialog" type="button">Close Dialog</button>
+</div>
+<script>
+
+var openButton = document.getElementById("open-dialog");
+var closeButton = document.getElementById("close-dialog");
+
+openButton.onclick = function() {
+
+  var dialog = document.getElementById("dialog");
+  dialog.style.display = "block";
+  var i;
+  for (i=0; i < dialog.attributes.length; i++) {
+
+    if (dialog.attributes[i].name == "aria-hidden") {
+
+      dialog.attributes[i].value = "false";
+
+    }
+
+  }
+  closeButton.focus();
+
+}
+
+closeButton.onclick = function() {
+
+  var dialog = document.getElementById("dialog");
+  dialog.style.display = "none";
+  var i;
+  for (i=0; i < dialog.attributes.length; i++) {
+
+    if (dialog.attributes[i].name == "aria-hidden") {
+
+      dialog.attributes[i].value = "true";
+
+    }
+
+  }
+  openButton.focus();
+
+}
+
+</script>
+</body>
+</html>
