@@ -1,5 +1,9 @@
 /* jshint node:true */
 'use strict';
+var SRC_DIR = 'src';
+var BUILD_DIR = 'builds';
+var OUTPUT_DIR = 'dist';
+var BUILD_SITE_NAME = 'html-site';
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -14,7 +18,7 @@ var onError = function(err) {
 };
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src('src/assets/videos/**/*.*').pipe(gulp.dest('dist/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 gulp.task('package', function(callback){
   sequence(
@@ -27,43 +31,45 @@ gulp.task('package', function(callback){
   );
 });
 gulp.task('copybuild', function(){
-  return gulp.src('dist/**/*.*')
+  return gulp.src(OUTPUT_DIR+'/**/*.*')
   .pipe(
-    gulp.dest('.tmp/html-site/')
+    gulp.dest('.tmp/'+BUILD_SITE_NAME+'/')
   );
 });
 
 gulp.task('make-build', function(){
   return gulp.src('.tmp/**/*.*').pipe(tar('build.tar'))
   .pipe(gzip())
-  .pipe(gulp.dest('builds/'))
+  .pipe(gulp.dest(BUILD_DIR))
   .pipe($.notify({ message: 'Build Packaged' }));
 });
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src('src/assets/videos/**/*.*').pipe(gulp.dest('dist/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 
 gulp.task('copyvendors', function(){
   //Copy Vendor assets to dist directory
-  gulp.src('src/assets/vendor/**/*.*').pipe(gulp.dest('dist/assets/vendor/'));
+  gulp.src(SRC_DIR+'/assets/vendor/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
 });
 
 gulp.task('copycss',['copyfiles'], function() {
-  gulp.src('src/assets/css/bootstrap.css').pipe(gulp.dest('dist/assets/css/'));
-  gulp.src('src/assets/css/font-awesome.min.css').pipe(gulp.dest('dist/assets/css/'));
+  gulp.src(SRC_DIR+'/assets/css/bootstrap.css')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
+  gulp.src(SRC_DIR+'/assets/css/font-awesome.min.css')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
 
 gulp.task('styles', function () {
-  return gulp.src('src/assets/css/main.scss')
+  return gulp.src(SRC_DIR+'/assets/css/main.scss')
     .pipe(sass())
-    .pipe(gulp.dest('src/assets/css/'))
-    .pipe(gulp.dest('dist/assets/css/'));
+    .pipe(gulp.dest(SRC_DIR+'/assets/css/'))
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
 
 
 gulp.task('jshint', function() {
-  return gulp.src('src/assets/js/*.js')
+  return gulp.src(SRC_DIR+'/assets/js/*.js')
     .pipe(plumber({
       errorHandler: onError
     }))
@@ -73,31 +79,31 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src('src/assets/js/**/*.js')
-      .pipe(gulp.dest('dist/assets/js'));
+  return gulp.src(SRC_DIR+'/assets/js/**/*.js')
+      .pipe(gulp.dest(OUTPUT_DIR+'/assets/js'));
 
 });
 
 gulp.task('html', ['styles','copyfiles'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,src}'});
-  return gulp.src('src/*.html')
+  return gulp.src(SRC_DIR+'/*.html')
     .pipe(assets)
     .pipe(assets.restore())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(OUTPUT_DIR+''));
 });
 
 gulp.task('images', function () {
-  return gulp.src('src/assets/img/**/*')
-    .pipe(gulp.dest('dist/assets/img'));
+  return gulp.src(SRC_DIR+'/assets/img/**/*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/img'));
 });
 
 gulp.task('fonts', function () {
-  return gulp.src('src/assets/fonts/**/*')
+  return gulp.src(SRC_DIR+'/assets/fonts/**/*')
     .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
-    .pipe(gulp.dest('dist/assets/fonts'));
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/fonts'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+gulp.task('clean', require('del').bind(null, ['.tmp', OUTPUT_DIR+'']));
 
 gulp.task('connect', ['styles'], function () {
   var serveStatic = require('serve-static');
@@ -105,8 +111,8 @@ gulp.task('connect', ['styles'], function () {
   var app = require('connect')()
     .use(require('connect-livereload')({port: 35729}))
     .use(serveStatic('.tmp'))
-    .use(serveStatic('dist'))
-    .use(serveIndex('dist'));
+    .use(serveStatic(OUTPUT_DIR))
+    .use(serveIndex(OUTPUT_DIR));
   require('http').createServer(app)
   .listen(9000)
   .on('listening', function () {
@@ -119,19 +125,19 @@ gulp.task('serve', ['connect', 'watch'], function () {
 });
 
 gulp.task('watch',['build','connect'], function() {
-  gulp.watch('src/assets/css/**/*.scss', ['styles']);
-  gulp.watch('src/assets/js/*.js', ['jshint', 'scripts']);
-  gulp.watch('src/assets/img/**/*', ['images']);
-  gulp.watch('src/assets/vendor/**/*.*', ['copyvendors']);
-  gulp.watch('src/*.*', ['html']);
+  gulp.watch(SRC_DIR+'/assets/css/**/*.scss', ['styles']);
+  gulp.watch(SRC_DIR+'/assets/js/*.js', ['jshint', 'scripts']);
+  gulp.watch(SRC_DIR+'/assets/img/**/*', ['images']);
+  gulp.watch(SRC_DIR+'/assets/vendor/**/*.*', ['copyvendors']);
+  gulp.watch(SRC_DIR+'/*.*', ['html']);
   var server = $.livereload();
-  gulp.watch(['src/**']).on('change', server.changed);
+  gulp.watch([SRC_DIR+'/**']).on('change', server.changed);
   $.livereload.listen();
 });
 
 gulp.task('build',
   ['jshint','scripts', 'html', 'images', 'fonts','styles','copycss'], function () {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build'}));
+  return gulp.src(OUTPUT_DIR+'/**/*').pipe($.size({title: 'build'}));
 });
 
 gulp.task('default', ['clean'], function () {
