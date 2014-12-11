@@ -12,6 +12,7 @@ var $ = require('gulp-load-plugins')();
 var tar = require('gulp-tar');
 var gzip = require('gulp-gzip');
 var sequence = require('run-sequence');
+var fileinclude = require('gulp-file-include');
 
 var onError = function(err) {
   console.log(err);
@@ -65,7 +66,7 @@ gulp.task('copycss',['copyfiles'], function() {
 
 gulp.task('styles', function () {
   return gulp.src(SRC_DIR+'/assets/css/main.scss')
-    .pipe(sass())    
+    .pipe(sass())
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
 
@@ -90,7 +91,11 @@ gulp.task('html', ['styles','copyfiles'], function () {
   return gulp.src(SRC_DIR+'/*.html')
     .pipe(assets)
     .pipe(assets.restore())
-    .pipe(gulp.dest(OUTPUT_DIR+''));
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: SRC_DIR
+    }))
+    .pipe(gulp.dest(OUTPUT_DIR));
 });
 
 gulp.task('images', function () {
@@ -104,7 +109,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/fonts'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', OUTPUT_DIR+'']));
+gulp.task('clean', require('del').bind(null, ['.tmp', OUTPUT_DIR]));
 
 gulp.task('connect', ['styles'], function () {
   var serveStatic = require('serve-static');
