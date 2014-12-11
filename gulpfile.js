@@ -93,7 +93,7 @@ gulp.task('html', ['styles','copyfiles'], function () {
     .pipe(assets.restore())
     .pipe(fileinclude({
       prefix: '@@',
-      basepath: SRC_DIR
+      basepath: '@file'
     }))
     .pipe(gulp.dest(OUTPUT_DIR));
 });
@@ -135,7 +135,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch(SRC_DIR+'/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch(SRC_DIR+'/assets/img/**/*', ['images']);
   gulp.watch(SRC_DIR+'/assets/vendor/**/*.*', ['copyvendors']);
-  gulp.watch(SRC_DIR+'/*.*', ['html']);
+  gulp.watch(SRC_DIR+'/**/*.*', ['html']);
   var server = $.livereload();
   gulp.watch([SRC_DIR+'/**']).on('change', server.changed);
   $.livereload.listen();
