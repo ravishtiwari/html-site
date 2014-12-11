@@ -94,7 +94,8 @@ hr {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
+  transition: all 0.5s ease;
+  display: block; }
 
 .tilt:hover {
   -webkit-transform: rotate(-10deg);
@@ -104,13 +105,6 @@ hr {
   transform: rotate(-10deg); }
 
 .tilt:focus {
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  transform: rotate(-10deg); }
-
-.tilt a:focus {
   -webkit-transform: rotate(-10deg);
   -moz-transform: rotate(-10deg);
   -o-transform: rotate(-10deg);
