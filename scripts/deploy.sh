@@ -9,8 +9,8 @@ then
 	exit;
 fi
 
-cp ${BUILD_PATH}build-$1.tar ${DIRECTORY}build-$1.tar
-if [ -s ${DIRECTORY}build-$1.tar ]
+cp ${BUILD_PATH}build-$1.tar.gz ${DIRECTORY}build-$1.tar.gz
+if [ -s ${DIRECTORY}build-$1.tar.gz ]
 	then
 	for (( i=5; i>0; i--)); do
 		sleep 1 &
@@ -29,9 +29,9 @@ if [ -s ${DIRECTORY}build-$1.tar ]
 		rm -rf  ${SITE_NAME}
 	fi
 	printf "\nDeploying new version of site"
-	tar -C ${DIRECTORY} -xf build-$1.tar;
+	tar -C ${DIRECTORY} -xf build-$1.tar.gz;
 	printf "\nDeployed Build $1";
 else
 	printf "\nBuild $1 not Found in build dir";
 fi
-rm -rf build-$1.tar;
+rm -rf build-$1.tar.gz;
