@@ -1,6 +1,6 @@
 #!/bin/bash
-BUILD_PATH=e:\\builds\\;
-DIRECTORY=e:\\sites\\;
+BUILD_PATH=d:\\builds\\;
+DIRECTORY=C:\\xampp\\htdocs\\;
 SITE_NAME="html-site";
 
 if [ $# -ne 1 ]

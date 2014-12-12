@@ -1,85 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="shortcut icon" href="assets/ico/favicon.png">
-
-  <title>KED: Video : Accessible video player demo</title>
-
-  <!-- Bootstrap core CSS -->
-  <!-- <link href="assets/css/bootstrap.css" rel="stylesheet" /> -->
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet" />
-
-  <!-- Custom styles for this template -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/framework/fss/css/fss-layout.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/framework/fss/css/fss-text.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-bw-uio.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-wb-uio.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-by-uio.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-theme-yb-uio.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/fss/fss-text-uio.css" />
-  <link rel="stylesheet" type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/css/FatPanelUIOptions.css" />
-
-  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/jquery-ui/css/ui-lightness/jquery-ui-1.8.14.custom.css" rel="stylesheet" />
-  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/css/VideoPlayer.css" rel="stylesheet" />
-  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/lib/captionator/css/captions.css" rel="stylesheet" />
-  <!--[if lt IE 9]>
-  <link type="text/css" href="assets/vendor/fluid-project/videoPlayer/css/ltie9.css" rel="stylesheet" />
-  <![endif]-->
-
-  <!-- Fluid and jQuery Dependencies -->
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/infusion/MyInfusion.js"></script>
-  <!-- Utils -->
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/jquery-ui/js/jquery.ui.button.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/captionator/js/captionator.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/mediaelement/js/mediaelement.js"></script>
-  <!--[if lt IE 9]>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/lib/html5shiv/js/html5shiv.js"></script>
-  <![endif]-->
-  <!-- VideoPlayer dependencies -->
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_framework.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_showHide.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_html5Captionator.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_controllers.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/ToggleButton.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/MenuButton.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_media.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_transcript.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_intervalEventsConductor.js"></script>
-  <script type="text/javascript" src="assets/vendor/fluid-project/videoPlayer/js/VideoPlayer_uiOptions.js"></script>
-
-</head>
-
+  @@include('partials/header-video.html',
+    {
+      "title": "KED : HTML Site : Video : Accessible video player demo",
+      "page":"video"
+    }
+  )
 <body>
-
-
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand" href="#">SP<i class="fa fa-circle"></i>T</a>
         </div>
-        <div class="navbar-collapse collapse">
+        <div class="navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="index.html">HOME</a></li>
             <li><a href="about.html">ABOUT</a></li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="works.html">WORKS</a></li>
-            <li  class="active"><a href="video.html">VIDEO</a></li>
-            <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"><desc class="invisible">Contact me</desc></i></a></li>
+            <li class="active"><a href="video.html">VIDEO</a></li>
+            <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"><desc class="invisible"></desc></i></a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -87,97 +27,103 @@
   </nav>
 
   <div class="container wb">
-  <script>
-  fluid.pageEnhancer({
-    tocTemplate: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/tableOfContents/html/TableOfContents.html"
-  });
-  </script>
+    <script>
+    fluid.pageEnhancer({
+      tocTemplate: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/tableOfContents/html/TableOfContents.html"
+    });
+    </script>
 
-  <div class="flc-uiOptions fl-uiOptions-fatPanel">
-    <div class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
-    <!-- <div class="fl-panelBar">
-    <button class="flc-slidingPanel-toggleButton fl-toggleButton">Show/Hide</button>
-  </div> -->
-</div>
-<div class="flc-toc-tocContainer"> </div>
+    <div class="flc-uiOptions fl-uiOptions-fatPanel">
+      <div class="flc-slidingPanel-panel flc-uiOptions-iframe"></div>
+    </div>
+    <div class="flc-toc-tocContainer"> </div>
 
+    <div class="videoPlayer fl-videoPlayer">
+    </div>
 
-
-<div class="videoPlayer fl-videoPlayer">
-</div>
-
-<script>
-var uiOptions = fluid.uiOptions.fatPanel.withMediaPanel(".flc-uiOptions", {
-  prefix: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/html/",
-  components: {
-    relay: {
-      type: "fluid.videoPlayer.relay"
-    }
-  }
-  ,
-  templateLoader: {
-    options: {
-      templates: {
-        mediaControls: "assets/vendor/fluid-project/videoPlayer/html/UIOptionsTemplate-media.html"
+    <script>
+      var uiOptions = fluid.uiOptions.fatPanel.withMediaPanel(".flc-uiOptions", {
+      prefix: "assets/vendor/fluid-project/videoPlayer/lib/infusion/components/uiOptions/html/",
+      components: {
+        relay: {
+          type: "fluid.videoPlayer.relay"
+        }
       }
-    }
-  }
-});
+      ,
+      templateLoader: {
+        options: {
+          templates: {
+            mediaControls: "assets/vendor/fluid-project/videoPlayer/html/UIOptionsTemplate-media.html"
+          }
+        }
+      }
+      });
 
-var videoOptions = {container: ".videoPlayer", options: {
-  video: {
-    sources: [
-    {
-      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.mp4",
-      type: "video/mp4"
-    },
-    {
-      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.webm",
-      type: "video/webm"
-    },
-    {
-      src: "http://www.youtube.com/v/_VxQEPw1x9E",
-      type: "video/youtube"
-    }
-    ],
-    captions: [
-    {
-      src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
-      type: "text/amarajson",
-      srclang: "en",
-      label: "English"
-    },
-    {
-      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.fr.vtt",
-      type: "text/vtt",
-      srclang: "fr",
-      label: "French"
-    }
-    ],
-    transcripts: [
-    {
-      // TO TEST the transcript processing of Universal Subtitles files for transcripts,
-      // substititute the following two lines
-      src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
-      type: "text/amarajson",
+      var videoOptions = {container: ".videoPlayer", options: {
+      video: {
+        sources: [
+        {
+          src: "assets/videos/ReorganizeFuture/ReorganizeFuture.mp4",
+          type: "video/mp4"
+        },
+        {
+          src: "assets/videos/ReorganizeFuture/ReorganizeFuture.webm",
+          type: "video/webm"
+        },
+        {
+          src: "http://www.youtube.com/v/_VxQEPw1x9E",
+          type: "video/youtube"
+        }
+        ],
+        captions: [
+        {
+          src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
+          type: "text/amarajson",
+          srclang: "en",
+          label: "English"
+        },
+        {
+          src: "assets/videos/ReorganizeFuture/ReorganizeFuture.fr.vtt",
+          type: "text/vtt",
+          srclang: "fr",
+          label: "French"
+        }
+        ],
+        transcripts: [
+        {
+          // TO TEST the transcript processing of Universal Subtitles files for transcripts,
+          // substititute the following two lines
+          src: "http://www.youtube.com/watch?v=_VxQEPw1x9E&language=en",
+          type: "text/amarajson",
 
-      //src: "videos/ReorganizeFuture/ReorganizeFuture.transcripts.en.json",
-      //type: "JSONcc",
-      srclang: "en",
-      label: "English"
-    },
-    {
-      src: "assets/videos/ReorganizeFuture/ReorganizeFuture.transcripts.fr.json",
-      type: "JSONcc",
-      srclang: "fr",
-      label: "French"
-    }
-    ]
-  },
-  videoTitle: "A chance to reorganize our future?"
-}};
-fluid.videoPlayer.makeEnhancedInstances(videoOptions, uiOptions.relay);
-</script>
+          //src: "videos/ReorganizeFuture/ReorganizeFuture.transcripts.en.json",
+          //type: "JSONcc",
+          srclang: "en",
+          label: "English"
+        },
+        {
+          src: "assets/videos/ReorganizeFuture/ReorganizeFuture.transcripts.fr.json",
+          type: "JSONcc",
+          srclang: "fr",
+          label: "French"
+        }
+        ]
+      },
+      videoTitle: "A chance to reorganize our future?"
+      }};
+      fluid.videoPlayer.makeEnhancedInstances(videoOptions, uiOptions.relay);
+    </script>
   </div>
-  </body>
-</html>
+  <div class="clear"></div>
+  <div id="r">
+    <div class="container">
+      <div class="row centered">
+        <div class="col-lg-8 col-lg-offset-2" tabindex="0">
+          <h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
+          <p>We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
+        </div>
+      </div><!-- row -->
+    </div><!-- container -->
+  </div><! -- r wrap -->
+
+  @@include('partials/footer.html')
