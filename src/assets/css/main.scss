@@ -20,7 +20,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 
-    margin-top: 70px;
+//    margin-top: 70px;
 }
 
 /* Titles */
@@ -78,12 +78,11 @@ hr {
     padding: 0;
 }
 
-
 .navbar {
     font-weight: 800;
     font-size: 14px;
-    padding-top: 15px;
     padding-bottom: 15px;
+    border: none !important;
 }
 
 .navbar-inverse {
@@ -108,9 +107,6 @@ hr {
     font-size: 22px;
     letter-spacing: 1px;
 }
-
-
-
 
 .navbar-inverse .navbar-brand i {
     color: #ff7878;
@@ -427,9 +423,6 @@ Pricing Tables
     background: #1abc9c;
 }
 
-
-
-
 .pricing-signup:focus{
   background: #ff7878;
 }
@@ -440,4 +433,20 @@ Pricing Tables
 
 .foc-footer-icon:focus     i{
   color:#ff7878 !important;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        font-weight: 800;
+        font-size: 14px;
+        padding-bottom: 5px;
+        padding-top: 2px;
+        margin-bottom: 0px;
+        border: none !important;
+    }
+}
+
+.collapse {
+    display: block;
+    visibility: visible;
 }
