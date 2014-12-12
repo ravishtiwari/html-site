@@ -88,6 +88,11 @@ hr {
   font-size: 22px;
   letter-spacing: 1px; }
 
+.navbar-inverse .navbar-brand span {
+  color: #ff7878;
+  font-size: 22px;
+  letter-spacing: 1px; }
+
 /*TILT*/
 .tilt {
   -webkit-transition: all 0.5s ease;
@@ -198,7 +203,7 @@ Wrap Sections
   padding-top: 30px;
   padding-bottom: 30px; }
 
-#f i {
+#f i, em {
   color: #bdbdbd;
   font-size: 30px;
   padding: 20px; }
@@ -214,6 +219,10 @@ Wrap Sections
   font-weight: 700; }
 
 .w i {
+  color: #ff7878;
+  font-size: 30px; }
+
+.w em {
   color: #ff7878;
   font-size: 30px; }
 
@@ -344,5 +353,13 @@ Pricing Tables
 .foc-footer-icon:focus i {
   color: #ff7878 !important; }
 
+.foc-footer-icon:focus em {
+  color: #ff7878 !important; }
+
 .col-lg-8:focus {
   border: 1px dotted black; }
+
+.navbar-inverse .navbar-brand em {
+  color: #ff7878;
+  font-size: 22px;
+  letter-spacing: 1px; }
