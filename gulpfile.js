@@ -12,13 +12,15 @@ var $ = require('gulp-load-plugins')();
 var tar = require('gulp-tar');
 var gzip = require('gulp-gzip');
 var sequence = require('run-sequence');
+var fileinclude = require('gulp-file-include');
 
 var onError = function(err) {
   console.log(err);
 };
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 gulp.task('package', function(callback){
   sequence(
@@ -45,12 +47,14 @@ gulp.task('make-build', function(){
 });
 
 gulp.task('copyfiles',['copyvendors'], function(){
-  gulp.src(SRC_DIR+'/assets/videos/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
+  gulp.src(SRC_DIR+'/assets/videos/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/videos/'));
 });
 
 gulp.task('copyvendors', function(){
   //Copy Vendor assets to dist directory
-  gulp.src(SRC_DIR+'/assets/vendor/**/*.*').pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
+  gulp.src(SRC_DIR+'/assets/vendor/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
 });
 
 gulp.task('copycss',['copyfiles'], function() {
@@ -63,10 +67,8 @@ gulp.task('copycss',['copyfiles'], function() {
 gulp.task('styles', function () {
   return gulp.src(SRC_DIR+'/assets/css/main.scss')
     .pipe(sass())
-    .pipe(gulp.dest(SRC_DIR+'/assets/css/'))
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
-
 
 gulp.task('jshint', function() {
   return gulp.src(SRC_DIR+'/assets/js/*.js')
@@ -89,7 +91,11 @@ gulp.task('html', ['styles','copyfiles'], function () {
   return gulp.src(SRC_DIR+'/*.html')
     .pipe(assets)
     .pipe(assets.restore())
-    .pipe(gulp.dest(OUTPUT_DIR+''));
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    .pipe(gulp.dest(OUTPUT_DIR));
 });
 
 gulp.task('images', function () {
@@ -103,7 +109,7 @@ gulp.task('fonts', function () {
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/fonts'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', OUTPUT_DIR+'']));
+gulp.task('clean', require('del').bind(null, ['.tmp', OUTPUT_DIR]));
 
 gulp.task('connect', ['styles'], function () {
   var serveStatic = require('serve-static');
@@ -129,7 +135,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch(SRC_DIR+'/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch(SRC_DIR+'/assets/img/**/*', ['images']);
   gulp.watch(SRC_DIR+'/assets/vendor/**/*.*', ['copyvendors']);
-  gulp.watch(SRC_DIR+'/*.*', ['html']);
+  gulp.watch(SRC_DIR+'/**/*.*', ['html']);
   var server = $.livereload();
   gulp.watch([SRC_DIR+'/**']).on('change', server.changed);
   $.livereload.listen();
