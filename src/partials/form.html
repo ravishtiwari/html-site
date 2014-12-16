@@ -1,0 +1,135 @@
+<form method="post" id="form1" class="form-horizontal">
+    <fieldset id="personalInfo">
+        <legend>Personal Information</legend>
+
+        <div class="form-group">
+            <label for="txt_FirstName" id="FirstName-ariaLabel" class="control-label col-xs-2">First Name</label>
+            <div class="col-xs-10">
+                <input id="txt_FirstName" name="txt_FirstName" type="text" aria-labelledby="FirstName-ariaLabel"
+                       class="required form-control" title="First Name. This is a required field"
+                />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="txt_MiddleName" id="MiddleName-ariaLabel" class="control-label col-xs-2">Middle Name</label>
+            <div class="col-xs-10">
+                <input id="txt_MiddleName" name="txt_MiddleName" type="text" aria-labelledby="MiddleName-ariaLabel"
+                       class="required form-control" title="Middle Name. This is a required field"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="txt_Surname" id="Surname-ariaLabel" class="control-label col-xs-2">Surname</label>
+            <div class="col-xs-10">
+                <input id="txt_Surname" name="txt_Surname" type="text" aria-labelledby="Surname-ariaLabel"
+                       class="required form-control" title="Surname. This is a required field"
+                />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="contactInfo">
+        <legend>Contact Information</legend>
+        <div class="form-group">
+            <label for="Email" id="Email-ariaLabel" class="control-label col-xs-2">Email</label>
+            <div class="col-xs-10">
+                <input id="Email" name="Email" type="email" aria-labelledby="Email-ariaLabel"
+                       class="required form-control" title="Surname. This is a required field"
+                />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="ConfirmEmail" id="ConfirmEmail-ariaLabel" class="control-label col-xs-2">Confirm Email</label>
+            <div class="col-xs-10">
+                <input id="ConfirmEmail" name="ConfirmEmail" type="email" aria-labelledby="ConfirmEmail-ariaLabel"
+                       class="required form-control" title="Surname. This is a required field"
+                />
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="courseInfo">
+        <legend>Course of interest </legend>
+        <div class="form-group">
+            <label for="sel_Course" id="Course-ariaLabel" class="control-label col-xs-2">Course</label>
+            <div class="col-xs-10">
+                <select id="sel_Course" name="sel_Course" aria-labelledby="Course-ariaLabel"
+                        class="required form-control" title="Course. This is a required field">
+                    <option value="HTML5">HTML5</option>
+                    <option value="CSS3">CSS3</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="Gulp">Gulp</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Ruby on Rails">Ruby on Rails</option>
+                    <option value="Ajax">Ajax</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="interestInfo">
+        <legend>Area of interest </legend>
+        <div class="form-group">
+            <div id="interests" class="col-xs-2"></div>
+            <div class="col-xs-10">
+                <div class="row">
+                    <input id="chk_AreaOfInterest_1" name="chk_AreaOfInterest[]"
+                           type="checkbox" aria-labelledby="AreaOfInterest-ariaLabel"
+                    />
+                    <span>
+                        <label for="chk_AreaOfInterest_1" id="AreaOfInterest_1-ariaLabel" >Interest 1</label>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <input id="chk_AreaOfInterest_2" name="chk_AreaOfInterest[]"
+                           type="checkbox" aria-labelledby="AreaOfInterest_2-ariaLabel"
+                    />
+                    <span>
+                        <label for="chk_AreaOfInterest" id="AreaOfInterest_2-ariaLabel">Interest 2</label>
+                    </span>
+
+                </div>
+                <div class="row">
+                    <input id="chk_AreaOfInterest_3" name="chk_AreaOfInterest[]"
+                           type="checkbox" aria-labelledby="AreaOfInterest_3-ariaLabel"
+                            />
+                    <span>
+                        <label for="chk_AreaOfInterest_3" id="AreaOfInterest_3-ariaLabel">Interest 3</label>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <input id="chk_AreaOfInterest_4" name="chk_AreaOfInterest[]"
+                           type="checkbox" aria-labelledby="AreaOfInterest_4-ariaLabel"
+                            />
+                    <span>
+                        <label for="chk_AreaOfInterest_4" id="AreaOfInterest_4-ariaLabel">Interest 3</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="verification">
+        <legend>Verify you are human</legend>
+        <div class="form-group">
+            <label for="captcha_Q" id="Captcha_Q-ariaLabel" class="control-label col-xs-2">Security Question</label>
+            <div class="col-xs-10 well">
+                <input id="captcha_Q" type="text" class="form-control" readonly value="<?php echo $captcha['question'];?>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="txt_Captcha" id="Captcha-ariaLabel" class="control-label col-xs-2" aria-label="Answer to Security Question"
+                   aria-desc="">Your answer</label>
+            <div class="col-xs-10">
+                <input id="txt_Captcha" name="txt_Captcha" type="text" aria-labelledby="Captcha-ariaLabel"
+                       class="required form-control" title="Captcha. This is a required field"
+                />
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <div class="col-xs-offset-2 col-xs-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+
+    </div>
+</form>
