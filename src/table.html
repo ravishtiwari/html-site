@@ -1,0 +1,146 @@
+@@include('partials/header.html',
+{
+  "title": "KED : HTML Site : Table Accessibility demo",
+  "page":"table"
+}
+)
+
+  <body id="page-table">
+	<!-- Fixed navbar -->
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="navbar navbar-inverse">
+		  <div class="container">
+			<div class="navbar-header">
+			  <a class="navbar-brand" href="#">SP<span class="fa fa-circle"></span>T</a>
+			</div>
+
+			<div class="navbar-header">
+			  <a href="#main" style="color:#1161ec"   class="visuallyhidden focusable">Skip Navigation </a>
+			</div>
+
+			<div class="navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="index.html">HOME</a></li>
+					<li><a href="about.html">ABOUT</a></li>
+					<li><a href="services.html">SERVICES</a></li>
+					<li><a href="works.html">WORKS</a></li>
+					<li><a href="video.html">VIDEO</a></li>
+					<li class="active"><a href="table.html">TABLE</a></li>
+					<li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
+				</ul>
+			</div><!--/.nav-collapse -->
+		  </div>
+		</div>
+	</nav>
+	<main id="main">
+		<div class="container desc">
+			<div class="row" tabindex="0">
+				<h1>Accessible HTML Table</h1>
+				<p>Table below explains velocity of different sprints.</p>
+			</div>
+			<hr />
+			<div class="row well" tabindex="0">
+				<p tabindex="0">Table below is example of how to make HTML Data tables accessible.</p>
+				<table tabindex="0" class="table table-bordered well">
+					<caption tabindex="0">Sprint Planning Report</caption>
+					<thead>
+					<tr>
+						<td></td>
+						<th scope="col">Sprint</th>
+						<th scope="col">Expected Story points</th>
+						<th scope="col">Actual Story Points</th>
+						<th scope="col">Difference</th>
+						<th scope="col">Backlog</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<th rowspan="2" scope="row">Month - November 2014</th>
+						<th scope="row">Sprint 1 (1 to 15th November)</th>
+						<td>40</td>
+						<td>38</td>
+						<td>2</td>
+						<td>2</td>
+					</tr>
+					<tr>
+						<th scope="row">Sprint 2 (16 to 30th November)</th>
+						<td>40</td>
+						<td>47</td>
+						<td>+7</td>
+						<td>0</td>
+					</tr>
+					<tr>
+						<th rowspan="2" scope="row">Month - December 2014</th>
+						<th scope="row">Sprint 3 (1 to 15th December)</th>
+						<td>40</td>
+						<td>35</td>
+						<td>5</td>
+						<td>5</td>
+					</tr>
+					<tr>
+						<th scope="row">Sprint 4 (16 to 31st December)</th>
+						<td>40</td>
+						<td>41</td>
+						<td>+1</td>
+						<td>4</td>
+					</tbody>
+				</table>
+			</div>
+			<hr />
+			<div class="clearfix"></div>
+			<div class="row well"  tabindex="0">
+				<p tabindex="0">Table below is example of how to make HTML Data tables accessible.
+					This table uses alternative technique of using <em><small>headers</small></em>.
+					In theory it should work fine, however, we have found that Firefox is ignoring first column header.
+					This table is present only to demonstrate alternative method and should be avoided.</p>
+				<table tabindex="0" class="table table-bordered">
+					<caption tabindex="0">Sprint Planning Report</caption>
+					<thead>
+						<tr tabindex="0">
+							<td>&nbsp;</td>
+							<th id="c2" tabindex="0">Expected Story points</th>
+							<th id="c3" tabindex="0">Actual Story Points</th>
+							<th id="c4" tabindex="0">Difference</th>
+							<th id="c5" tabindex="0">Backlog</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th id="sh2"  scope="colgroup" colspan="5" class="centered">Month - November 2014</th>
+						</tr>
+						<tr>
+							<th id="r5" scope="row">Sprint 1 (1 to 15th November)</th>
+							<td headers="c2 sh2 r5">40</td>
+							<td headers="c3 sh2 r5">38</td>
+							<td headers="c4 sh2 r5">2</td>
+							<td headers="c5 sh2 r5">2</td>
+						</tr>
+						<tr>
+							<th id="r6"  scope="row">Sprint 2 (16 to 30th November)</th>
+							<td headers="c2">40</td>
+							<td headers="c3">47</td>
+							<td headers="c4">0</td>
+							<td headers="c5">5</td>
+						</tr>
+
+						<tr>
+							<th id="sh3" scope="colgroup" colspan="5" class="centered">Month - December 2014</th>
+						</tr>
+						<tr>
+							<th scope="row"   id="r7" >Sprint  3 (1 to 15th December)</th>
+							<td headers="c2 sh3 r7">40</td>
+							<td headers="c3 sh3 r7">38</td>
+							<td headers="c4 sh3 r7">2</td>
+							<td headers="c5 sh3 r7">7</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- row -->
+		<hr />
+	</div><!-- container -->
+
+	</main>
+	@@include('partials/story-tellers.html')
+
+
+  @@include('partials/footer.html')
