@@ -103,7 +103,7 @@ include_once('includes/about-us-form.php');
 						];
 						var myDoughnut = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(doughnutData);
 				</script>
-				<p><b>Design & Brand</b></p>
+				<p><strong>Design & Brand</strong></p>
 				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
 			</div><!-- /col-lg-3 -->
 
@@ -124,7 +124,7 @@ include_once('includes/about-us-form.php');
 						];
 						var myDoughnut = new Chart(document.getElementById("canvas2").getContext("2d")).Doughnut(doughnutData);
 				</script>
-				<p><b>Web Development</b></p>
+				<p><strong>Web Development</strong></p>
 				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
 			</div><!-- /col-lg-3 -->
 
@@ -145,7 +145,7 @@ include_once('includes/about-us-form.php');
 						];
 						var myDoughnut = new Chart(document.getElementById("canvas3").getContext("2d")).Doughnut(doughnutData);
 				</script>
-				<p><b>Seo Services</b></p>
+				<p><strong>Seo Services</strong></p>
 				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
 			</div><!-- /col-lg-3 -->
 
@@ -166,7 +166,7 @@ include_once('includes/about-us-form.php');
 						];
 						var myDoughnut = new Chart(document.getElementById("canvas4").getContext("2d")).Doughnut(doughnutData);
 				</script>
-				<p><b>Printing</b></p>
+				<p><strong>Printing</strong></p>
 				<p><small>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.</small></p>
 			</div><!-- /col-lg-3 -->
 
@@ -174,6 +174,9 @@ include_once('includes/about-us-form.php');
 			</div><!-- row -->
 		</div><!-- container -->
 	</div><!-- DG -->
+
+
+
 
 	<div id="r">
 	  <div class="container">
