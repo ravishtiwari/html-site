@@ -53,8 +53,8 @@ gulp.task('copyfiles',['copyvendors'], function(){
 
 gulp.task('copyvendors', function(){
   //Copy Vendor assets to dist directory
-  gulp.src(SRC_DIR+'/assets/vendor/**/*.*')
-    .pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
+  gulp.src(SRC_DIR+'/assets/chart/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/chart/'));
 });
 
 gulp.task('copycss',['copyfiles'], function() {
@@ -88,7 +88,7 @@ gulp.task('scripts', function() {
 
 gulp.task('html', ['styles','copyfiles'], function () {
   var assets = $.useref.assets({searchPath: '{.tmp,src}'});
-  return gulp.src(SRC_DIR+'/*.html')
+  return gulp.src([SRC_DIR+'/*.html', SRC_DIR+'/**/*.php'])
     .pipe(assets)
     .pipe(assets.restore())
     .pipe(fileinclude({
@@ -134,7 +134,7 @@ gulp.task('watch',['build','connect'], function() {
   gulp.watch(SRC_DIR+'/assets/css/**/*.scss', ['styles']);
   gulp.watch(SRC_DIR+'/assets/js/*.js', ['jshint', 'scripts']);
   gulp.watch(SRC_DIR+'/assets/img/**/*', ['images']);
-  gulp.watch(SRC_DIR+'/assets/vendor/**/*.*', ['copyvendors']);
+  gulp.watch(SRC_DIR+'/assets/chart/**/*.*', ['copyvendors']);
   gulp.watch(SRC_DIR+'/**/*.*', ['html']);
   var server = $.livereload();
   gulp.watch([SRC_DIR+'/**']).on('change', server.changed);
