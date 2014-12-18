@@ -1,9 +1,12 @@
-  @@include('partials/header.html',
-    {
-      "title": "KED : HTML Site : About Us",
-      "page":"about-us"
-    }
-  )
+<?php
+include_once('includes/about-us-form.php');
+?>
+@@include('partials/header.html',
+{
+  "title": "KED : HTML Site : About Us",
+  "page":"about-us"
+}
+)
 
   <body>
 
@@ -16,38 +19,25 @@
 			  </div>
 
         <div class="navbar-header">
-          <a href="#blue" stype="color:#1161ec"   class="visuallyhidden focusable">Skip Navigation </a>
+          <a href="#main" style="color:#1161ec"   class="visuallyhidden focusable">Skip Navigation </a>
         </div>
-
-
-
-			  <div class="navbar-collapse">
-				  <ul class="nav navbar-nav navbar-right">
-					  <li><a href="index.html">HOME</a></li>
-					  <li class="active"><a href="about.html">ABOUT</a></li>
-					  <li><a href="services.html">SERVICES</a></li>
-					  <li><a href="works.html">WORKS</a></li>
-					  <li><a href="video.html">VIDEO</a></li>
-					  <li><a href="table.html">TABLE</a></li>
-					  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><i class="fa fa-envelope-o"><desc class="invisible"></desc></i></a></li>
-				  </ul>
-			  </div><!--/.nav-collapse -->
+		<div class="navbar-collapse">
+		  <ul class="nav navbar-nav navbar-right">
+			  <li><a href="index.html">HOME</a></li>
+			  <li class="active"><a href="about.php">ABOUT</a></li>
+			  <li><a href="services.html">SERVICES</a></li>
+			  <li><a href="works.html">WORKS</a></li>
+			  <li><a href="video.html">VIDEO</a></li>
+			  <li><a href="table.html">TABLE</a></li>
+			  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
+		  </ul>
+		</div><!--/.nav-collapse -->
 		  </div>
 	  </div>
   </nav>
 
-	<div id="blue">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-8 col-lg-offset-2" tabindex="0">
-				<h4>LEARN MORE ABOUT US</h4>
-				<p>WE ARE COOL PEOPLE</p>
-				</div>
-			</div><!-- row -->
-		</div><!-- container -->
-	</div><!--  bluewrap -->
-
-
+  <main id="main">
+  <script src="assets/js/chart/Chart.js"></script>
 	<div class="container w">
 		<div class="row centered">
 			<br><br>
@@ -82,8 +72,12 @@
 		</div><!-- row -->
 		<br>
 		<br>
-	</div><!-- container -->
-
+	</div>
+  	<!-- forms container -->
+	<div class="container">
+        <p>Form below is example of accessible form</p>
+		  @@include('partials/form.html')
+	</div><!-- end forms container -->
 
 	<!-- PORTFOLIO SECTION -->
 	<div id="dg">
@@ -181,18 +175,15 @@
 		</div><!-- container -->
 	</div><!-- DG -->
 
-
-
-
 	<div id="r">
-		<div class="container">
-			<div class="row centered">
-				<div class="col-lg-8 col-lg-offset-2" tabindex="0">
-					<h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
-					<p>We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
-				</div>
-			</div><!-- row -->
-		</div><!-- container -->
-	</div><! -- r wrap -->
-
+	  <div class="container">
+		  <div class="row centered">
+			  <div class="col-lg-8 col-lg-offset-2" tabindex="0">
+				  <h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
+				  <p>We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
+			  </div>
+		  </div><!-- row -->
+	  </div><!-- container -->
+	</div><!-- r wrap -->
+  </main>
   @@include('partials/footer.html')
