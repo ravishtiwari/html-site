@@ -4,17 +4,17 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_FirstName" id="FirstName-ariaLabel" class="control-label col-xs-12">
-                    <div class="move-left">First Name <span style="color:red">(required)</span>
+                    <span class="move-left">First Name <span style="color:red">(required)</span>
                     <?php
                         if(array_key_exists('txt_FirstName', $errors)){
                     ?>
                         <br />
-                        <span id="txt_FirstName_Error" class="errors">Error:
+                        <span id="txt_FirstName_Error" class="errors move-left">Error:
                             <?=$errors['txt_FirstName'];?>
                         </span>
                     <?php
                     } ?>
-                    </div>
+                    </span>
                     <input id="txt_FirstName" name="txt_FirstName" type="text"
                            class="required form-control"
                            value="<?=$firstName?>"
@@ -32,15 +32,15 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_MiddleName" id="MiddleName-ariaLabel" class="control-label col-xs-12">
-                    <div class="text-left"> Middle Name <span style="color:red">(required)</span>
+                    <span class="move-left"> Middle Name <span style="color:red">(required)</span>
                     <?php
                             if(array_key_exists('txt_MiddleName', $errors)){
                         ?>
                         <br />
-                        <span id="txt_MiddleName_Error" class="errors">Error: <?=$errors['txt_MiddleName'];?></span>
+                        <span id="txt_MiddleName_Error" class="errors move-left">Error: <?=$errors['txt_MiddleName'];?></span>
                     <?php
                         } ?>
-                    </div>
+                    </span>
                     <input id="txt_MiddleName" name="txt_MiddleName" type="text"
                            class="required form-control"
                            value="<?=$middleName?>"
@@ -58,7 +58,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_Surname" id="Surname-ariaLabel" class="control-label col-xs-12">
-                    <div class="text-left"> Surname <span style="color:red">(required)</span>
+                    <span class="move-left"> Surname <span style="color:red">(required)</span>
                     <?php
                                 if(array_key_exists('txt_Surname', $errors)){
                             ?>
@@ -66,7 +66,7 @@
                         <span id="txt_Surname_Error" class="errors">Error: <?=$errors['txt_Surname'];?></span>
                     <?php
                             } ?>
-                    </div>
+                    </span>
                     <input id="txt_Surname" name="txt_Surname" type="text"
                            class="required form-control"
                            value="<?=$lastName ?>"
@@ -86,16 +86,16 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="Email" id="Email-ariaLabel" class="control-label col-xs-12">
-                    <div class="text-left"> Email <span style="color:red">(required)</span>
+                    <span class="move-left"> Email <span style="color:red">(required)</span>
                         <?php
                             $email_error = null;
                             if(array_key_exists('Email', $errors)){
                         ?>
                         <br />
-                            <span id="email_Error" class="errors">Error: <?=$errors['Email'];?></span>
+                            <span id="email_Error" class="errors move-left">Error: <?=$errors['Email'];?></span>
                         <?php
                         } ?>
-                    </div>
+                    </span>
                     <input id="Email" name="Email" type="email"
                            class="required form-control"
                            value="<?=$email?>"
@@ -112,15 +112,15 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="ConfirmEmail" id="ConfirmEmail-ariaLabel" class="control-label col-xs-12">
-                    <div class="text-left"> Confirm Email <span style="color:red">(required)</span>
+                    <span class="move-left"> Confirm Email <span style="color:red">(required)</span>
                         <?php
                             if(array_key_exists('ConfirmEmail', $errors)){
                         ?>
                         <br />
-                        <span id="confirm_Email_Error" class="errors">Error: <?=$errors['ConfirmEmail'];?></span>
+                        <span id="confirm_Email_Error" class="errors move-left">Error: <?=$errors['ConfirmEmail'];?></span>
                         <?php
                         } ?>
-                    </div>
+                    </span>
                     <input id="ConfirmEmail" name="ConfirmEmail" type="email"
                            class="required form-control"
                            value="<?=$confirmEmail?>"
@@ -140,15 +140,15 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="sel_Course" id="Course-ariaLabel" class="control-label col-xs-12">
-                    <div class="text-left"> Course <span style="color:red">(required)</span>
+                    <span class="move-left"> Course <span style="color:red">(required)</span>
                     <?php
                         if(array_key_exists('sel_Course', $errors)){
                     ?>
                     <br />
-                    <span id="sel_Course_Error" class="errors">Error: <?=$errors['sel_Course'];?></span>
+                    <span id="sel_Course_Error" class="errors move-left">Error: <?=$errors['sel_Course'];?></span>
                     <?php
                         } ?>
-                    </div>
+                    </span>
 
                     <select id="sel_Course" name="sel_Course"
                             class="required form-control"
@@ -178,7 +178,7 @@
             <div class="col-xs-10">
                 <div class="row">
                     <input id="chk_AreaOfInterest_1" name="chk_AreaOfInterest[]"
-                           type="checkbox" aria-labelledby="AreaOfInterest-ariaLabel"
+                           type="checkbox"
                            value="interest1"
                            <?php echo in_array('interest1',$areaOfInterest) ? 'checked="checked"':''; ?>
                     />
@@ -189,18 +189,18 @@
 
                 <div class="row">
                     <input id="chk_AreaOfInterest_2" name="chk_AreaOfInterest[]"
-                           type="checkbox" aria-labelledby="AreaOfInterest_2-ariaLabel"
+                           type="checkbox"
                            value="interest2"
                            <?php echo in_array('interest2',$areaOfInterest) ? 'checked="checked"':''; ?>
                     />
                     <span>
-                        <label for="chk_AreaOfInterest" id="AreaOfInterest_2-ariaLabel">Interest 2</label>
+                        <label for="chk_AreaOfInterest_2" id="AreaOfInterest_2-ariaLabel">Interest 2</label>
                     </span>
 
                 </div>
                 <div class="row">
                     <input id="chk_AreaOfInterest_3" name="chk_AreaOfInterest[]"
-                           type="checkbox" aria-labelledby="AreaOfInterest_3-ariaLabel"
+                           type="checkbox"
                            value="interest3"
                            <?php echo in_array('interest3',$areaOfInterest) ? 'checked="checked"':''; ?>
                             />
@@ -211,7 +211,7 @@
 
                 <div class="row">
                     <input id="chk_AreaOfInterest_4" name="chk_AreaOfInterest[]"
-                           type="checkbox" aria-labelledby="AreaOfInterest_4-ariaLabel"
+                           type="checkbox"
                            value="interest4"
                            <?php echo in_array('interest4',$areaOfInterest) ? 'checked="checked"':''; ?>
                             />
@@ -222,30 +222,28 @@
             </div>
         </div>
     </fieldset>
-    <fieldset id="verification">
+    <fieldset id="verification" class="well">
         <legend>Verify you are human</legend>
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="captcha_Q" id="Captcha_Q-ariaLabel" class="control-label col-xs-12">
-                <div class="text-left"> Security Question </span></div>
-                <div class="well">
+                <span class="move-left"> Security Question </span>
                     <input id="captcha_Q" type="text" class="form-control" readonly value="<?php echo $captcha['question'];?>" />
-                </div>
                 </label>
             </div>
         </div>
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_Captcha" id="Captcha-ariaLabel" class="control-label col-xs-12" >
-                <div class="text-left"> Your answer <span style="color:red">(required)</span>
+                <span class="move-left"> Your answer <span style="color:red">(required)</span>
                     <?php
                         if(array_key_exists('txt_Captcha', $errors)){
                     ?>
                     <br />
-                    <span id="txt_Captcha_Error" class="errors">Error: <?=$errors['txt_Captcha'];?></span>
+                    <span id="txt_Captcha_Error" class="errors move-left">Error: <?=$errors['txt_Captcha'];?></span>
                     <?php
                     } ?>
-                </div>
+                </span>
                     <input id="txt_Captcha" name="txt_Captcha" type="text"
                            class="required form-control"
                            aria-required="true"
