@@ -536,3 +536,12 @@ border:1px dotted black;
   color:$requied-color;
   font-size:10px;
 }
+
+/**
+* Login form container
+*/
+#login-container, #login-container form{
+  padding: 5px;
+  margin: 2px;
+  box-sizing: border-box;
+}
