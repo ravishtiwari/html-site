@@ -1,4 +1,5 @@
 <?php
+require_once('includes/includes.php');
 include_once('includes/about-us-form.php');
 ?>
 @@include('partials/header.html',
@@ -29,6 +30,7 @@ include_once('includes/about-us-form.php');
 			  <li><a href="works.html">WORKS</a></li>
 			  <li><a href="video.html">VIDEO</a></li>
 			  <li><a href="table.html">TABLE</a></li>
+
 			  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
 		  </ul>
 		</div><!--/.nav-collapse -->
@@ -37,7 +39,7 @@ include_once('includes/about-us-form.php');
   </nav>
 
   <main id="main">
-  <script src="assets/js/chart/Chart.js"></script>
+  <script src="assets/vendor/chart/javascript/Chart.js"></script>
 	<div class="container w">
 		<div class="row centered">
 			<br><br>
