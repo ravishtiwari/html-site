@@ -1,4 +1,9 @@
 <?php
+session_start();
+//ini_set('display_errors', 1);
+//error_reporting(E_ALL & ~E_NOTICE);
+require_once("config.php");
+require_once("TextCaptcha.php");
 $firstName = null;
 $middleName = null;
 $lastName = null;
@@ -17,14 +22,14 @@ if(isset($_POST['submit'])){
     $confirmEmail = strip_tags(htmlspecialchars($_POST['ConfirmEmail']));
     $course = strip_tags(htmlspecialchars($_POST['sel_Course']));
     $areaOfInterest = isset($_POST['chk_AreaOfInterest']) ?
-                    strip_tags(htmlspecialchars($_POST['chk_AreaOfInterest']))
-                    : array();
+                        $_POST['chk_AreaOfInterest'] : array();
+
     $ans = md5(strtolower(
         trim(strip_tags(htmlspecialchars($_POST['txt_Captcha'])))
     ));
 
     foreach($_POST as $field=>$value){
-        $value = trim($value);
+        $value = $field !='chk_AreaOfInterest' ? trim($value): $value;
         switch($field){
             case 'txt_FirstName':
             case 'txt_MiddleName':
@@ -64,7 +69,7 @@ if(isset($_POST['submit'])){
     }
 }
 
-$textCaptcha = new KED\Utils\TextCaptcha(TEXT_CAPTCHA_API_KEY);
+$textCaptcha = new TextCaptcha(TEXT_CAPTCHA_API_KEY);
 $captcha = $textCaptcha->getCaptcha();
 $_SESSION['captcha'] = $captcha['answer'];
 
