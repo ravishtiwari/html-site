@@ -1,9 +1,7 @@
 <?php
-session_start();
 //ini_set('display_errors', 1);
 //error_reporting(E_ALL & ~E_NOTICE);
 require_once("config.php");
-require_once("TextCaptcha.php");
 $firstName = null;
 $middleName = null;
 $lastName = null;
@@ -69,7 +67,7 @@ if(isset($_POST['submit'])){
     }
 }
 
-$textCaptcha = new TextCaptcha(TEXT_CAPTCHA_API_KEY);
+$textCaptcha = new \KED\Utils\TextCaptcha(TEXT_CAPTCHA_API_KEY);
 $captcha = $textCaptcha->getCaptcha();
 $_SESSION['captcha'] = $captcha['answer'];
 
