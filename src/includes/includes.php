@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: ravish
  * Date: 12/19/14
  * Time: 12:29 PM
@@ -10,14 +9,16 @@ session_start();
 /**
  * Enable Error Reporting
  */
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+//ini_set('display_errors', 1);
+error_reporting(E_ALL & ~E_NOTICE);
+
+
+$path = dirname(__DIR__).DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."classes";
+
 /**
  * Load Config
  */
-require_once("config.php");
-
-$path = dirname(__DIR__).DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."classes";
+require_once(dirname(__DIR__).DIRECTORY_SEPARATOR."includes".DIRECTORY_SEPARATOR."config.php");
 
 /**
  * Load Class Auto Loader
