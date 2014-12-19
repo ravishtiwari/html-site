@@ -5,4 +5,4 @@ node_modules
 dist/
 builds/
 .idea/
-src/config.php
+src/includes/config.php

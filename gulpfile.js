@@ -53,8 +53,8 @@ gulp.task('copyfiles',['copyvendors'], function(){
 
 gulp.task('copyvendors', function(){
   //Copy Vendor assets to dist directory
-  gulp.src(SRC_DIR+'/assets/chart/**/*.*')
-    .pipe(gulp.dest(OUTPUT_DIR+'/assets/chart/'));
+  gulp.src(SRC_DIR+'/assets/vendor/**/*.*')
+    .pipe(gulp.dest(OUTPUT_DIR+'/assets/vendor/'));
 });
 
 gulp.task('copycss',['copyfiles'], function() {
