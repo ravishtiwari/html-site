@@ -19,7 +19,7 @@
                            class="required form-control"
                            value="<?=$firstName?>"
                            aria-required="true"
-                           <?php if($txt_FirstName_error!=null){
+                           <?php if(array_key_exists('txt_FirstName', $errors)){
                            echo 'aria-invalid="true"';
                            }
                            ?>
