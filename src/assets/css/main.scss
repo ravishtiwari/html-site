@@ -532,3 +532,7 @@ border:1px dotted black;
 /**
 * Form label instruction css end
 */
+.required {
+  color:$requied-color;
+  font-size:10px;
+}
