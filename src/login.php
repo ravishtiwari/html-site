@@ -25,11 +25,18 @@
 		<div class="navbar-collapse">
 		  <ul class="nav navbar-nav navbar-right">
 			  <li><a href="index.html">HOME</a></li>
-			  <li class="active"><a href="about.php">ABOUT</a></li>
+			  <li><a href="about.php">ABOUT</a></li>
 			  <li><a href="services.html">SERVICES</a></li>
 			  <li><a href="works.html">WORKS</a></li>
 			  <li><a href="video.html">VIDEO</a></li>
 			  <li><a href="table.html">TABLE</a></li>
+              <?php
+              if(loggedInUser()){
+                  echo '<li class="active"><a href="logout.php">LOGOUT</a></li>';
+              } else {
+                  echo '<li class="active"><a href="login.php">LOGIN</a></li>';
+              }
+              ?>
 			  <li>
                   <a data-toggle="modal" data-target="#myModal" href="#myModal">
                       <span class="fa fa-envelope-o"></span>
@@ -43,12 +50,27 @@
 
   <main id="main">
 	<!-- Login Form Section -->
-	<div id="dg">
+	<div id="login-container">
 		<div class="container well">
 			<div class="row">
                 <div class="well">
-                    <p>Form below is example of accessible form</p>
-                    @@include('partials/login-form.html')
+                    <?php if(!loggedInUser()){ ?>
+                        <?php
+                            if(array_key_exists('logout', $_GET)) {
+                            ?>
+                            <div class="alert alert-info">You are now logged out of site</div>
+                            <?php
+                            }
+                        ?>
+                        <p>Login to site</p>
+                        @@include('partials/login-form.html')
+                    <?php } else {
+                    ?>
+                        <div class="alert alert-warning">You are already logged in.
+                            Please <a href="logout.php" title="Click to logout from site">logout</a> and login again if you think it's not you.
+                          </div>
+                    <?php
+                    } ?>
                 </div>
 
 			</div><!-- row -->

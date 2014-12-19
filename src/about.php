@@ -30,7 +30,14 @@ include_once('includes/about-us-form.php');
 			  <li><a href="works.html">WORKS</a></li>
 			  <li><a href="video.html">VIDEO</a></li>
 			  <li><a href="table.html">TABLE</a></li>
-
+              <li><a href="table.html">TABLE</a></li>
+              <?php
+              if(loggedInUser()){
+                  echo '<li><a href="logout.php">LOGOUT</a></li>';
+              } else {
+                  echo '<li><a href="login.php">LOGIN</a></li>';
+              }
+              ?>
 			  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
 		  </ul>
 		</div><!--/.nav-collapse -->

@@ -1,10 +1,10 @@
 <?php
-include_once('includes/about-us-form.php');
+require_once('includes/includes.php');
 ?>
 @@include('partials/header.html',
 {
-  "title": "KED : HTML Site : Thank you for using out form",
-  "page":"about-us"
+  "title": "KED : HTML Site :  Thank you",
+  "page":"thankout"
 }
 )
 
@@ -29,6 +29,13 @@ include_once('includes/about-us-form.php');
 			  <li><a href="works.html">WORKS</a></li>
 			  <li><a href="video.html">VIDEO</a></li>
 			  <li><a href="table.html">TABLE</a></li>
+              <?php
+                if(loggedInUser()){
+                    echo '<li><a href="logout.php">LOGOUT</a></li>';
+                } else {
+                    echo '<li><a href="login.php">LOGIN</a></li>';
+                }
+               ?>
 			  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
 		  </ul>
 		</div><!--/.nav-collapse -->
@@ -42,9 +49,19 @@ include_once('includes/about-us-form.php');
 	<div id="dg">
 		<div class="container well">
 			<div class="row centered">
-                <div class="well">
-                    Thank you for contacting us, we will get back to you soon.
-                </div>
+                <?php if(array_key_exists('login', $_GET)) { ?>
+                    <div class="well">
+                        <div class="alert alert-info">
+                            You are now logged in, please note, session is only working on following 2 pages:
+                            <a href="about.php" title="About page"> About</a> &amp;
+                            <a href="login.php" title="Login page">login</a>.
+                        </div>
+                    </div>
+                <?php } else { ?>
+                    <div class="well">
+                        Thank you for contacting us, we will get back to you soon.
+                    </div>
+                <?php } ?>
 
 			</div><!-- row -->
 		</div><!-- container -->
