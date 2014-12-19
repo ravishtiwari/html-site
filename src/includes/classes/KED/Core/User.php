@@ -1,6 +1,5 @@
 <?php
 /**
- * Created by PhpStorm.
  * User: ravish
  * Date: 12/19/14
  * Time: 2:21 PM
@@ -37,7 +36,7 @@ class User
     public function __get($param)
     {
         if(in_array($param, array('id','username'))){
-            $param .='_';
+            $param ='_'.$param;
             return $this->$param;
         }else{
             throw new \InvalidArgumentException("Property : $param does not exists in ".__CLASS__);
@@ -61,8 +60,8 @@ class User
             $table = self::table();
             $sql = "select id from $table where username=:username and password=:password ";
             $statement = $db->prepare($sql);
-            $statement->bindValues(':username',$username, \PDO::PARAM_STR);
-            $statement->bindValues(':password ', md5($password), \PDO::PARAM_STR);
+            $statement->bindValue(':username',$username, \PDO::PARAM_STR);
+            $statement->bindValue(':password', md5($password), \PDO::PARAM_STR);
             $statement->execute();
             if($statement->rowCount() == 0){
                 throw new Exception\UserNotFoundException("Invalid user name or password");
@@ -82,6 +81,6 @@ class User
 
     private static function table()
     {
-        return strtolower(__CLASS__).'s';
+        return 'users';
     }
 }

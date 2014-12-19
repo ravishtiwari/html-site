@@ -10,13 +10,13 @@
                     ?>
                         <br />
                         <span id="txt_UserName_Error" class="errors move-left">Error:
-                            <?=$errors['txt_FirstName'];?>
+                            <?=$errors['txt_UserName'];?>
                         </span>
                     <?php
                     } ?>
                     </span>
                     <input id="txt_UserName" name="txt_UserName" type="text"
-                           class="required form-control"
+                           class="form-control"
                            value="<?=$username?>"
                            aria-required="true"
                            <?php if(array_key_exists('txt_UserName', $errors)){
@@ -37,12 +37,14 @@
                             if(array_key_exists('Password', $errors)){
                         ?>
                         <br />
-                        <span id="Password_Error" class="errors move-left">Error: <?=$errors['Password'];?></span>
+                        <span id="Password_Error" class="errors move-left">
+                            Error: <?=$errors['Password'];?>
+                        </span>
                     <?php
                         } ?>
                     </span>
                     <input id="Password" name="Password" type="password"
-                           class="required form-control"
+                           class="form-control"
                            value=""
                            aria-required="true"
                            <?php if(array_key_exists('Password', $errors)){
