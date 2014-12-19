@@ -1,0 +1,265 @@
+<form method="post" id="form1" class="form-horizontal">
+    <fieldset id="personalInfo">
+        <legend>Personal Information</legend>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="txt_FirstName" id="FirstName-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left">First Name <span style="color:red">(required)</span>
+                    <?php
+                        if(array_key_exists('txt_FirstName', $errors)){
+                    ?>
+                        <br />
+                        <span id="txt_FirstName_Error" class="errors move-left">Error:
+                            <?=$errors['txt_FirstName'];?>
+                        </span>
+                    <?php
+                    } ?>
+                    </span>
+                    <input id="txt_FirstName" name="txt_FirstName" type="text"
+                           class="required form-control"
+                           value="<?=$firstName?>"
+                           aria-required="true"
+                           <?php if($txt_FirstName_error!=null){
+                           echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="fnameInstruct"  class="move-left"> should not be empty </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="txt_MiddleName" id="MiddleName-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left"> Middle Name <span style="color:red">(required)</span>
+                    <?php
+                            if(array_key_exists('txt_MiddleName', $errors)){
+                        ?>
+                        <br />
+                        <span id="txt_MiddleName_Error" class="errors move-left">Error: <?=$errors['txt_MiddleName'];?></span>
+                    <?php
+                        } ?>
+                    </span>
+                    <input id="txt_MiddleName" name="txt_MiddleName" type="text"
+                           class="required form-control"
+                           value="<?=$middleName?>"
+                           aria-required="true"
+                           <?php if(array_key_exists('txt_MiddleName', $errors)){
+                            echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="mnameInstruct"  class="move-left"> should not be empty </span>
+                </label>
+            </div>
+
+        </div>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="txt_Surname" id="Surname-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left"> Surname <span style="color:red">(required)</span>
+                    <?php
+                                if(array_key_exists('txt_Surname', $errors)){
+                            ?>
+                        <br />
+                        <span id="txt_Surname_Error" class="errors">Error: <?=$errors['txt_Surname'];?></span>
+                    <?php
+                            } ?>
+                    </span>
+                    <input id="txt_Surname" name="txt_Surname" type="text"
+                           class="required form-control"
+                           value="<?=$lastName ?>"
+                           aria-required="true"
+                           <?php if(array_key_exists('txt_Surname', $errors)){
+                           echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="surnameInstruct"  class="move-left"> should not be empty </span>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="contactInfo">
+        <legend>Contact Information</legend>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="Email" id="Email-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left"> Email <span style="color:red">(required)</span>
+                        <?php
+                            $email_error = null;
+                            if(array_key_exists('Email', $errors)){
+                        ?>
+                        <br />
+                            <span id="email_Error" class="errors move-left">Error: <?=$errors['Email'];?></span>
+                        <?php
+                        } ?>
+                    </span>
+                    <input id="Email" name="Email" type="email"
+                           class="required form-control"
+                           value="<?=$email?>"
+                           aria-required="true"
+                           <?php if(array_key_exists('Email', $errors)){
+                            echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="emailInstruct"  class="move-left"> should be valid email, such as abc@example.com</span>
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="ConfirmEmail" id="ConfirmEmail-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left"> Confirm Email <span style="color:red">(required)</span>
+                        <?php
+                            if(array_key_exists('ConfirmEmail', $errors)){
+                        ?>
+                        <br />
+                        <span id="confirm_Email_Error" class="errors move-left">Error: <?=$errors['ConfirmEmail'];?></span>
+                        <?php
+                        } ?>
+                    </span>
+                    <input id="ConfirmEmail" name="ConfirmEmail" type="email"
+                           class="required form-control"
+                           value="<?=$confirmEmail?>"
+                           aria-required="true"
+                           <?php if(array_key_exists('ConfirmEmail', $errors)){
+                            echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="emailConfirmInstruct"  class="move-left"> should exactly match to email entered in 'Email' field</span>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="courseInfo">
+        <legend>Course of interest </legend>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="sel_Course" id="Course-ariaLabel" class="control-label col-xs-12">
+                    <span class="move-left"> Course <span style="color:red">(required)</span>
+                    <?php
+                        if(array_key_exists('sel_Course', $errors)){
+                    ?>
+                    <br />
+                    <span id="sel_Course_Error" class="errors move-left">Error: <?=$errors['sel_Course'];?></span>
+                    <?php
+                        } ?>
+                    </span>
+
+                    <select id="sel_Course" name="sel_Course"
+                            class="required form-control"
+                            aria-required="true"
+                            <?php if(array_key_exists('sel_Course', $errors)){
+                                echo 'aria-invalid="true"';
+                           }
+                           ?>
+                            >
+                        <option value="HTML5" <?php echo $course=='HTML5'? 'selected="selected"':''?>>HTML5</option>
+                        <option value="CSS3" <?php echo $course=='CSS3'? 'selected="selected"':''?>>CSS3</option>
+                        <option value="Node.js" <?php echo $course=='Node.js'? 'selected="selected"':''?>>Node.js</option>
+                        <option value="Gulp" <?php echo $course=='Gulp'? 'selected="selected"':''?>>Gulp</option>
+                        <option value="PHP" <?php echo $course=='PHP'? 'selected="selected"':''?>>PHP</option>
+                        <option value="ROR" <?php echo $course=='ROR'? 'selected="selected"':''?>>Ruby on Rails</option>
+                        <option value="Ajax" <?php echo $course=='Ajax'? 'selected="selected"':''?>>Ajax</option>
+                    </select>
+                    <span id="courseInstruct"  class="move-left"> Select course of your interest</span>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="interestInfo">
+        <legend>Area of interest </legend>
+        <div class="form-group">
+            <div id="interests" class="col-xs-1"></div>
+            <div class="col-xs-10">
+                <div class="row">
+                    <input id="chk_AreaOfInterest_1" name="chk_AreaOfInterest[]"
+                           type="checkbox"
+                           value="interest1"
+                           <?php echo in_array('interest1',$areaOfInterest) ? 'checked="checked"':''; ?>
+                    />
+                    <span>
+                        <label for="chk_AreaOfInterest_1" id="AreaOfInterest_1-ariaLabel" >Interest 1</label>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <input id="chk_AreaOfInterest_2" name="chk_AreaOfInterest[]"
+                           type="checkbox"
+                           value="interest2"
+                           <?php echo in_array('interest2',$areaOfInterest) ? 'checked="checked"':''; ?>
+                    />
+                    <span>
+                        <label for="chk_AreaOfInterest_2" id="AreaOfInterest_2-ariaLabel">Interest 2</label>
+                    </span>
+
+                </div>
+                <div class="row">
+                    <input id="chk_AreaOfInterest_3" name="chk_AreaOfInterest[]"
+                           type="checkbox"
+                           value="interest3"
+                           <?php echo in_array('interest3',$areaOfInterest) ? 'checked="checked"':''; ?>
+                            />
+                    <span>
+                        <label for="chk_AreaOfInterest_3" id="AreaOfInterest_3-ariaLabel">Interest 3</label>
+                    </span>
+                </div>
+
+                <div class="row">
+                    <input id="chk_AreaOfInterest_4" name="chk_AreaOfInterest[]"
+                           type="checkbox"
+                           value="interest4"
+                           <?php echo in_array('interest4',$areaOfInterest) ? 'checked="checked"':''; ?>
+                            />
+                    <span>
+                        <label for="chk_AreaOfInterest_4" id="AreaOfInterest_4-ariaLabel">Interest 4</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset id="verification" class="well">
+        <legend>Verify you are human</legend>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="captcha_Q" id="Captcha_Q-ariaLabel" class="control-label col-xs-12">
+                <span class="move-left"> Security Question </span>
+                    <input id="captcha_Q" type="text" class="form-control" readonly value="<?php echo $captcha['question'];?>" />
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="txt_Captcha" id="Captcha-ariaLabel" class="control-label col-xs-12" >
+                <span class="move-left"> Your answer <span style="color:red">(required)</span>
+                    <?php
+                        if(array_key_exists('txt_Captcha', $errors)){
+                    ?>
+                    <br />
+                    <span id="txt_Captcha_Error" class="errors move-left">Error: <?=$errors['txt_Captcha'];?></span>
+                    <?php
+                    } ?>
+                </span>
+                    <input id="txt_Captcha" name="txt_Captcha" type="text"
+                           class="required form-control"
+                           aria-required="true"
+                        <?php if(array_key_exists('txt_Captcha', $errors)){
+                            echo 'aria-invalid="true"';
+                       }
+                       ?>
+                    />
+                    <span id="captchaInstruct"  class="move-left"> Please provide answer to security question</span>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <div class="col-xs-10">
+            <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
