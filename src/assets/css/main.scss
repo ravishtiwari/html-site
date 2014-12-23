@@ -1,6 +1,6 @@
-$icon-font-path: '../fonts';
-@import "bootstrap.css";
-@import "font-awesome.min.css";
+//$icon-font-path: '../fonts';
+@import "../vendor/bootstrap/css/bootstrap.css";
+@import "../vendor/font-awesome/font-awesome.min.css";
 @import 'helpers/variables';
 @import 'helpers/functions';
 
@@ -532,3 +532,16 @@ border:1px dotted black;
 /**
 * Form label instruction css end
 */
+.required {
+  color:$requied-color;
+  font-size:10px;
+}
+
+/**
+* Login form container
+*/
+#login-container, #login-container form{
+  padding: 5px;
+  margin: 2px;
+  box-sizing: border-box;
+}

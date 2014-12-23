@@ -1,0 +1,65 @@
+<form method="post" id="form1" class="form-horizontal">
+    <fieldset id="loginDetails">
+        <legend>Login Details</legend>
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="txt_UserName" id="UserName-ariaLabel" class="control-label col-xs-6">
+                    <span class="move-left">Username <span class="required">(required)</span>
+                    <?php
+                        if(array_key_exists('txt_UserName', $errors)){
+                    ?>
+                        <br />
+                        <span id="txt_UserName_Error" class="errors move-left">Error:
+                            <?=$errors['txt_UserName'];?>
+                        </span>
+                    <?php
+                    } ?>
+                    </span>
+                    <input id="txt_UserName" name="txt_UserName" type="text"
+                           class="form-control"
+                           value="<?=$username?>"
+                           aria-required="true"
+                           <?php if(array_key_exists('txt_UserName', $errors)){
+                           echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="userNameInstruct"  class="move-left"> should not be empty </span>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-10">
+                <label for="Password" id="Password-ariaLabel" class="control-label col-xs-6">
+                    <span class="move-left"> Password <span class="required">(required)</span>
+                    <?php
+                            if(array_key_exists('Password', $errors)){
+                        ?>
+                        <br />
+                        <span id="Password_Error" class="errors move-left">
+                            Error: <?=$errors['Password'];?>
+                        </span>
+                    <?php
+                        } ?>
+                    </span>
+                    <input id="Password" name="Password" type="password"
+                           class="form-control"
+                           value=""
+                           aria-required="true"
+                           <?php if(array_key_exists('Password', $errors)){
+                            echo 'aria-invalid="true"';
+                           }
+                           ?>
+                    />
+                    <span id="passwordInstruct"  class="move-left"> should not be empty </span>
+                </label>
+            </div>
+        </div>
+    </fieldset>
+    <div class="form-group">
+        <div class="col-xs-10 move-left">
+            <button type="submit" name="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>

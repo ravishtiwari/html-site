@@ -1,4 +1,5 @@
 <?php
+namespace KED\Utils;
 /**
  * User: ravish
  * Date: 12/16/14
@@ -30,12 +31,12 @@ class TextCaptcha {
     {
         $url = self::API_END_POINT.$this->_key;
         try {
-            $xml = @new SimpleXMLElement($url,null,true);
+            $xml = @new \SimpleXMLElement($url,null,true);
         } catch (Exception $e) {
             $fallback = '<captcha>'.
                 '<question>Is ice hot or cold?</question>'.
                 '<answer>'.md5('cold').'</answer></captcha>';
-            $xml = new SimpleXMLElement($fallback);
+            $xml = new \SimpleXMLElement($fallback);
         }
         $question = (string) $xml->question;
         $ans = array();

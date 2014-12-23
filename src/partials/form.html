@@ -4,7 +4,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_FirstName" id="FirstName-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left">First Name <span style="color:red">(required)</span>
+                    <span class="move-left">First Name <span class="required">(required)</span>
                     <?php
                         if(array_key_exists('txt_FirstName', $errors)){
                     ?>
@@ -19,7 +19,7 @@
                            class="required form-control"
                            value="<?=$firstName?>"
                            aria-required="true"
-                           <?php if($txt_FirstName_error!=null){
+                           <?php if(array_key_exists('txt_FirstName', $errors)){
                            echo 'aria-invalid="true"';
                            }
                            ?>
@@ -32,7 +32,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_MiddleName" id="MiddleName-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left"> Middle Name <span style="color:red">(required)</span>
+                    <span class="move-left"> Middle Name <span class="required">(required)</span>
                     <?php
                             if(array_key_exists('txt_MiddleName', $errors)){
                         ?>
@@ -58,7 +58,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_Surname" id="Surname-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left"> Surname <span style="color:red">(required)</span>
+                    <span class="move-left"> Surname <span class="required">(required)</span>
                     <?php
                                 if(array_key_exists('txt_Surname', $errors)){
                             ?>
@@ -86,7 +86,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="Email" id="Email-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left"> Email <span style="color:red">(required)</span>
+                    <span class="move-left"> Email <span class="required">(required)</span>
                         <?php
                             $email_error = null;
                             if(array_key_exists('Email', $errors)){
@@ -112,7 +112,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="ConfirmEmail" id="ConfirmEmail-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left"> Confirm Email <span style="color:red">(required)</span>
+                    <span class="move-left"> Confirm Email <span class="required">(required)</span>
                         <?php
                             if(array_key_exists('ConfirmEmail', $errors)){
                         ?>
@@ -140,7 +140,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="sel_Course" id="Course-ariaLabel" class="control-label col-xs-12">
-                    <span class="move-left"> Course <span style="color:red">(required)</span>
+                    <span class="move-left"> Course <span class="required">(required)</span>
                     <?php
                         if(array_key_exists('sel_Course', $errors)){
                     ?>
@@ -235,7 +235,7 @@
         <div class="form-group">
             <div class="col-xs-10">
                 <label for="txt_Captcha" id="Captcha-ariaLabel" class="control-label col-xs-12" >
-                <span class="move-left"> Your answer <span style="color:red">(required)</span>
+                <span class="move-left"> Your answer <span class="required">(required)</span>
                     <?php
                         if(array_key_exists('txt_Captcha', $errors)){
                     ?>
