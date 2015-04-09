@@ -20,11 +20,6 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
 (1,	'ravish',	'e10adc3949ba59abbe56e057f20f883e'),
-(2,	'vivek',	'e10adc3949ba59abbe56e057f20f883e'),
-(3,	'vikas',	'e10adc3949ba59abbe56e057f20f883e'),
-(4,	'yukti',	'e10adc3949ba59abbe56e057f20f883e'),
-(5,	'tapan',	'e10adc3949ba59abbe56e057f20f883e'),
-(6,	'sayyed',	'e10adc3949ba59abbe56e057f20f883e'),
-(7,	'puneet',	'e10adc3949ba59abbe56e057f20f883e');
+(2,	'vivek',	'e10adc3949ba59abbe56e057f20f883e');
 
 -- 2014-12-19 17:16:35
