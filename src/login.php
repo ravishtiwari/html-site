@@ -4,7 +4,7 @@
 ?>
 @@include('partials/header.html',
 {
-  "title": "KED : HTML Site : Login page",
+  "title": "Accessibility Test  : HTML Site : Login page",
   "page":"about-us"
 }
 )
@@ -25,7 +25,19 @@
 		<div class="navbar-collapse">
 		  <ul class="nav navbar-nav navbar-right">
 			  <li><a href="index.html">HOME</a></li>
-			  <li><a href="about.php">ABOUT</a></li>
+              <li role="presentation" class="dropdown" aria-haspopup="true" aria-labelledby="menu-1">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="menuitem" id="menu-1" aria-expanded="false">
+                      About <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" role="menu"  class="active" aria-selected="true">
+                      <li role="menuitem">
+                          <a href="about.php" >ABOUT US</a>
+                      </li>
+                      <li role="menuitem" >
+                          <a href="ajax.php">Ajax</a>
+                      </li>
+                  </ul>
+              </li>
 			  <li><a href="services.html">SERVICES</a></li>
 			  <li><a href="works.html">WORKS</a></li>
 			  <li><a href="video.html">VIDEO</a></li>

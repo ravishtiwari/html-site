@@ -4,7 +4,7 @@ include_once('includes/about-us-form.php');
 ?>
 @@include('partials/header.html',
 {
-  "title": "KED : HTML Site : About Us",
+  "title": "Accessibility Test : HTML Site : About Us",
   "page":"about-us"
 }
 )
@@ -22,25 +22,32 @@ include_once('includes/about-us-form.php');
         <div class="navbar-header">
           <a href="#main" style="color:#1161ec"   class="visuallyhidden focusable">Skip Navigation </a>
         </div>
-		<div class="navbar-collapse">
-		  <ul class="nav navbar-nav navbar-right">
-			  <li><a href="index.html">HOME</a></li>
-			  <li class="active"><a href="about.php">ABOUT</a></li>
-			  <li><a href="services.html">SERVICES</a></li>
-			  <li><a href="works.html">WORKS</a></li>
-			  <li><a href="video.html">VIDEO</a></li>
-			  <li><a href="table.html">TABLE</a></li>
-              <li><a href="table.html">TABLE</a></li>
-              <?php
-              if(loggedInUser()){
-                  echo '<li><a href="logout.php">LOGOUT</a></li>';
-              } else {
-                  echo '<li><a href="login.php">LOGIN</a></li>';
-              }
-              ?>
-			  <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"></span></a></li>
-		  </ul>
-		</div><!--/.nav-collapse -->
+              <div class="navbar-collapse">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li><a href="index.html">HOME</a></li>
+                      <li class="active" aria-selected="true"
+                          role="presentation" class="dropdown" aria-haspopup="true" aria-labelledby="menu-1">
+                          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="menuitem" id="menu-1" aria-expanded="false">
+                              About <span class="caret"></span>
+                          </a>
+                          <ul class="dropdown-menu" role="menu"  class="active" aria-selected="true">
+                              <li role="menuitem"  class="active" aria-selected="true">
+                                  <a href="about.php" >ABOUT US</a>
+                              </li>
+                              <li role="menuitem" >
+                                  <a href="ajax.php">Ajax</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li><a href="services.html">SERVICES</a></li>
+                      <li><a href="works.html">WORKS</a></li>
+                      <li><a href="video.html">VIDEO</a></li>
+                      <li><a href="table.html">TABLE</a></li>
+                      <li><a href="login.php">LOGIN</a></li>
+                      <li><a data-toggle="modal" data-target="#myModal" href="#myModal"><span class="fa fa-envelope-o"><desc class="invisible"></desc></span></a></li>
+
+                  </ul>
+              </div><!--/.nav-collapse -->
 		  </div>
 	  </div>
   </nav>

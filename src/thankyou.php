@@ -3,7 +3,7 @@ require_once('includes/includes.php');
 ?>
 @@include('partials/header.html',
 {
-  "title": "KED : HTML Site :  Thank you",
+  "title": "Accessibility Test  : HTML Site :  Thank you",
   "page":"thankout"
 }
 )
