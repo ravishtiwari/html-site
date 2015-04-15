@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Ravish K Tiwari">
+
+  <title>Accessibility Test  : HTML Site : Knockout Home Page</title>
+  <!-- Custom styles for this template -->
+  <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="assets/vendor/bootstrap/javascript/bootstrap.min.js"></script>
+  <script src="assets/vendor/knockout/knockout.debug.js"></script>
+</head>
+
+
+<body>
+
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="navbar navbar-inverse">
+      <div class="container">
+        <div>
+          <a href="#main" class="visuallyhidden focusable" aria-hidden="false">Skip Navigation </a>
+        </div>
+    </div>
+  </div>
+  </nav>
+
+  <header id="header" role="banner">
+
+  </header>
+
+  <main role="main" id="main">
+    <div id="helloWorld">
+      <p>First name: <input data-bind="value: firstName" autofocus="true"/></p>
+      <p>Last name: <input data-bind="value: lastName" /></p>
+      <h2 id="abc"
+      >Hello, <span data-bind="text: fullName" aria-live="rude" aria-relevant="all"> </span>!</h2>
+    </div>
+  </main>
+
+
+
+
+  <!-- FOOTER -->
+  <footer id="f">
+  <script type="text/javascript" src="./assets/js/ko/hello-world.js"></script>
+  </footer><!-- Footer -->
+</body>
+</html>

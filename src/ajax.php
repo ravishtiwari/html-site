@@ -14,7 +14,6 @@ include_once('includes/about-us-form.php');
   <nav class="navbar navbar-default" role="navigation">
 	  <div class="navbar navbar-inverse">
 		  <div class="container">
-
 			  <div class="navbar-header">
 				  <a class="navbar-brand" href="#">SP<i class="fa fa-circle"></i>T</a>
 			  </div>
@@ -56,24 +55,39 @@ include_once('includes/about-us-form.php');
   </nav>
 
   <main id="main">
-	<div class="container w">
+	<div class="container w" role="application">
 		<div class="row">
             <h1>Example of Accessible HTML Tabs and Ajax</h1>
             <div id="tabsContainer" role="tabpanel">
                 <ul role="tablist" class="nav nav-tabs" id="featuresTabs">
-                    <li id="tabDashboard" role="presentation" class="active" aria-selected="true">
-                        <a href="#dashboardTab" role="tab" aria-controls="dashboardTab" data-toggle="tab" data-load-page="dashboard.html" class="ajaxtab">Dashboard</a>
+                    <li id="tabDashboard" role="presentation" class="active" aria-selected="true" role="tab" aria-controls="dashboardTab">
+                        <a href="#dashboardTab"
+                           data-toggle="tab" data-load-page="dashboard.html" class="ajaxtab">
+                            Dashboard
+                        </a>
                     </li>
-                    <li id="tabArticles" role="presentation" aria-selected="false">
-                        <a href="#articleTab" role="tab" aria-controls="articleTab" data-toggle="tab" data-load-page="article.html" class="ajaxtab">Articles</a>
+                    <li id="tabArticles" role="presentation" aria-selected="false" role="tab" aria-controls="articleTab">
+                        <a href="#articleTab"
+                           data-toggle="tab" data-load-page="article.html"
+                           class="ajaxtab">
+                            Articles
+                        </a>
                     </li>
-                    <li id="tabUtils" role="presentation" aria-selected="false">
-                        <a href="#utilityTab" role="tab" aria-controls="utilityTab"  data-toggle="tab"  data-load-page="utils.html" class="ajaxtab">Utilities</a>
+                    <li id="tabUtils" role="presentation" aria-selected="false" role="tab" aria-controls="utilityTab">
+                        <a href="#utilityTab"
+                           data-toggle="tab"  data-load-page="utils.html" class="ajaxtab">
+                            Utilities
+                        </a>
                     </li>
                 </ul>
 
                 <div class="tab-content panel" >
-                    <div aria-labelledby="tabDashboard" id="dashboardTab" role="tabpanel" class="tab-pane active container" aria-hidden="false" >
+                    <div aria-labelledby="tabDashboard"
+                         id="dashboardTab" role="tabpanel" class="tab-pane active container" aria-hidden="false"
+                         aria-hidden="true"
+                         aria-live="rude"
+                         aria-relevant="all"
+                        >
                         <div class="">
                             <h3>Dashboard</h3>
                             <p>Lorem ipsum</p>
@@ -85,7 +99,7 @@ include_once('includes/about-us-form.php');
                          id="articleTab" role="tabpanel"
                          class="tab-pane container"
                          aria-hidden="true"
-                         aria-live="assertive"
+                         aria-live="rude"
                          aria-relevant="all"
                         >
                         <div class="">
@@ -94,7 +108,13 @@ include_once('includes/about-us-form.php');
                         </div>
                     </div>
 
-                    <div aria-labelledby="tabUtils" id="utilityTab" role="tabpanel" class="tab-pane container" aria-hidden="true">
+                    <div aria-labelledby="tabUtils"
+                         id="utilityTab" role="tabpanel"
+                         class="tab-pane container" aria-hidden="true"
+                         aria-hidden="true"
+                         aria-live="rude"
+                         aria-relevant="all"
+                        >
                         <div class="">
                             <h3>Utilities</h3>
                             <p>Lorem ipsum</p>

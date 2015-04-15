@@ -81,8 +81,10 @@ gulp.task('jshint', function() {
 });
 
 gulp.task('scripts', function() {
-  return gulp.src(SRC_DIR+'/assets/js/**/*.js')
-      .pipe(gulp.dest(OUTPUT_DIR+'/assets/js'));
+
+  gulp.src([SRC_DIR+'/assets/js/**/*.js']).pipe(gulp.dest(OUTPUT_DIR+'/assets/js/'));
+  // return gulp.src(SRC_DIR+'/assets/js/**/*.js')
+  //     .pipe(gulp.dest(OUTPUT_DIR+'/assets/js/'));
 
 });
 
