@@ -93,8 +93,15 @@ hr {
     border-color: #2d2d2d;
 }
 
-.navbar-inverse .navbar-nav > .active > a {
-    background: $nav-active-color;
+.navbar-inverse{ 
+    .navbar-nav {
+
+        .active {  
+            a {
+                background: $nav-active-color;
+            }
+        }
+    }
 }
 
 

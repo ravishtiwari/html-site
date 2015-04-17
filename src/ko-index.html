@@ -8,44 +8,90 @@
   <meta name="author" content="Ravish K Tiwari">
 
   <title>Accessibility Test  : HTML Site : Knockout Home Page</title>
-  <!-- Custom styles for this template -->
-  <link href="assets/css/main.css" rel="stylesheet" type="text/css" />
-
-  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-  <![endif]-->
+  <link href="assets/css/main.css" rel="stylesheet" type="text/css" />  
   <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/javascript/bootstrap.min.js"></script>
   <script src="assets/vendor/knockout/knockout.debug.js"></script>
+  <script type="text/javascript" src="./assets/js/ko/spa.js"></script>
 </head>
 
 
-<body>
-
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar navbar-inverse">
-      <div class="container">
-        <div>
-          <a href="#main" class="visuallyhidden focusable" aria-hidden="false">Skip Navigation </a>
-        </div>
-    </div>
-  </div>
-  </nav>
+<body role="application">
+  <div>
+    <a href="#main" class="visuallyhidden focusable" aria-hidden="false">Skip Navigation </a>
+  </div>      
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default" role="navigation" aria-hidden="false "
+         aria-live="rude"
+         aria-relevant="all">
+         <ul data-bind="foreach: navlinks, css: {'nav':true, 'navbar-nav':true, 'navbar-right':true}" aria-live="polite" >
+              <li data-bind="css: {active: ($data == $root.selectedLink())}">
+                <a data-bind="text:$data, click: $root.goToLink, attr:{href: $data}" ></a>
+              </li>
+            </ul>
+      
+    </nav>
 
   <header id="header" role="banner">
 
   </header>
 
   <main role="main" id="main">
-    <div id="helloWorld">
-      <p>First name: <input data-bind="value: firstName" autofocus="true"/></p>
-      <p>Last name: <input data-bind="value: lastName" /></p>
-      <h2 id="abc"
-      >Hello, <span data-bind="text: fullName" aria-live="rude" aria-relevant="all"> </span>!</h2>
+    <div aria-label="Users list"
+         id="userList" role="document"
+         class="tab-pane container"
+         aria-live="rude"
+         aria-relevant="all"
+         data-bind="if: selectedLinkData,hasFocus: $root.selectedLink() == 'Users', attr:{'aria-hidden':$root.selectedLink() == 'Users' } ">
+        <table tabindex="0" 
+                data-bind="with: selectedLinkData, css:{table:true, 'table-bordered': true, well:true}">
+                <caption tabindex="0">List of System Users</caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Date</th>
+            </tr>
+          </thead>
+          <tbody data-bind="foreach: users">
+              <tr data-bind="click: $root.goToUser">
+                <td data-bind="text:id"> </td>
+                <td data-bind="text:name"> </td>
+                <td data-bind="text:date"> </td>
+              </tr>     
+          </tbody>
+        </table>                        
     </div>
+    <div aria-label="User details"
+         id="user" role="document"
+         class="tab-pane container"
+         aria-live="rude"
+         aria-relevant="all"
+         data-bind="hasFocus: $root.selectedUserData() != null, 
+                    attr:{'aria-hidden':$root.selectedUserData() != null } ">
+          <div class="container panel-body"  data-bind="with: selectedUserData">
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">User ID</div>
+              <div class="col-md-9"  data-bind="text: id"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Name</div>
+              <div class="col-md-9"  data-bind="text: name"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Email</div>
+              <div class="col-md-9"  data-bind="text: email"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Age</div>
+              <div class="col-md-9"  data-bind="text: age"></div>
+            </div>
+
+          </div>          
+                             
+    </div>        
   </main>
 
 
@@ -53,7 +99,7 @@
 
   <!-- FOOTER -->
   <footer id="f">
-  <script type="text/javascript" src="./assets/js/ko/hello-world.js"></script>
+  
   </footer><!-- Footer -->
 </body>
 </html>
