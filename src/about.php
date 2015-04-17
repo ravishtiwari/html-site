@@ -35,7 +35,7 @@ include_once('includes/about-us-form.php');
                                   <a href="about.php" >ABOUT US</a>
                               </li>
                               <li role="menuitem" >
-                                  <a href="ajax.php">Ajax</a>
+                                  <a href="ajax.html">Ajax</a>
                               </li>
                           </ul>
                       </li>
