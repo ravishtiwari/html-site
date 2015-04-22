@@ -65,7 +65,7 @@ gulp.task('copycss',['copyfiles'], function() {
 });
 
 gulp.task('styles', function () {
-  return gulp.src(SRC_DIR+'/assets/css/main.scss')
+  return gulp.src(SRC_DIR+'/assets/css/*.scss')
     .pipe(sass())
     .pipe(gulp.dest(OUTPUT_DIR+'/assets/css/'));
 });
