@@ -3,71 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
   <meta name="description" content="">
   <meta name="author" content="Ravish K Tiwari">
 
   <title>Accessibility Test  : HTML Site : Knockout Home Page</title>
-  <link href="assets/css/main.css" rel="stylesheet" type="text/css" />  
+  <link href="assets/css/main.css" rel="stylesheet" />  
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/knockout/knockout.debug.js"></script>
-  <script type="text/javascript" src="./assets/js/ko/spa.js"></script>
+  <script src="assets/vendor/knockout/sammy.js"></script>
+  <script src="./assets/js/ko/spa.js"></script>
 </head>
 
 
 <body role="application">
   <div>
-    <a href="#main" class="visuallyhidden focusable" aria-hidden="false">Skip Navigation </a>
+    <a href="#Main" aria-hidden="false" id="skipNav">Skip Navigation </a>
   </div>      
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default" role="navigation" aria-hidden="false "
-         aria-live="rude"
-         aria-relevant="all">
-         <ul data-bind="foreach: navlinks, css: {'nav':true, 'navbar-nav':true, 'navbar-right':true}" aria-live="polite" >
-              <li data-bind="css: {active: ($data == $root.selectedLink())}">
-                <a data-bind="text:$data, click: $root.goToLink, attr:{href: $data}" ></a>
-              </li>
-            </ul>
-      
-    </nav>
+    @@include('partials/ko/ko-nav.html')
 
   <header id="header" role="banner">
 
   </header>
 
-  <main role="main" id="main">
-    <div aria-label="Users list"
-         id="userList" role="document"
-         class="tab-pane container"
-         aria-live="rude"
-         aria-relevant="all"
-         data-bind="if: selectedLinkData,hasFocus: $root.selectedLink() == 'Users', attr:{'aria-hidden':$root.selectedLink() == 'Users' } ">
-        <table tabindex="0" 
-                data-bind="with: selectedLinkData, css:{table:true, 'table-bordered': true, well:true}">
-                <caption tabindex="0">List of System Users</caption>
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Date</th>
-            </tr>
-          </thead>
-          <tbody data-bind="foreach: users">
-              <tr data-bind="click: $root.goToUser">
-                <td data-bind="text:id"> </td>
-                <td data-bind="text:name"> </td>
-                <td data-bind="text:date"> </td>
-              </tr>     
-          </tbody>
-        </table>                        
-    </div>
+  <main role="main" id="Main">
+  @@include('partials/ko/main.html')
+    <!-- Users list-->
+    @@include('partials/ko/users-list.html')
+    <!-- End users list-->
+
+    <!-- User details -->
     <div aria-label="User details"
          id="user" role="document"
          class="tab-pane container"
          aria-live="rude"
          aria-relevant="all"
-         data-bind="hasFocus: $root.selectedUserData() != null, 
-                    attr:{'aria-hidden':$root.selectedUserData() != null } ">
+         data-bind="hasFocus: $root.selectedUserData() != null, attr:{'aria-hidden':$root.selectedUserData() != null } ">
           <div class="container panel-body"  data-bind="with: selectedUserData">
             <div class="row" tabindex="0">
               <div class="col-md-2  pull-left">User ID</div>
@@ -91,7 +63,16 @@
 
           </div>          
                              
-    </div>        
+    </div>   
+    <!-- End User details-->     
+
+    <!-- Forms -->
+    @@include('partials/ko/forms.html')
+    <!-- End Forms--> 
+
+    <!-- Tables -->
+    @@include('partials/ko/tables.html')
+    <!-- End Tables--> 
   </main>
 
 
