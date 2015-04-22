@@ -1,0 +1,30 @@
+<div aria-label="User details"
+         id="user" role="document"
+         class="tab-pane container"
+         aria-live="rude"
+         aria-relevant="all"
+         data-bind="hasFocus: $root.selectedUserData() != null, attr:{'aria-hidden':$root.selectedUserData() != null } ">
+          <div class="container panel-body"  data-bind="with: selectedUserData">
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">User ID</div>
+              <div class="col-md-9"  data-bind="text: id"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Name</div>
+              <div class="col-md-9"  data-bind="text: name"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Email</div>
+              <div class="col-md-9"  data-bind="text: email"></div>
+            </div>
+
+            <div class="row" tabindex="0">
+              <div class="col-md-2  pull-left">Age</div>
+              <div class="col-md-9"  data-bind="text: age"></div>
+            </div>
+
+          </div>          
+                             
+    </div>   

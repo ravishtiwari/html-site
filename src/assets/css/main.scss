@@ -537,6 +537,22 @@ border:1px dotted black;
     position: static;
     width: auto;
 }
+
+#skipNav {
+    position:absolute;
+    top:-10000px;
+    left:-10000px;
+
+    &:focus{
+        top:0px; 
+        left:0px; 
+        z-index:999;
+        border: 1 dotted;
+        padding: 2px;
+        background-color: $selection-color;
+    }
+}
+
 /**
 * Form label instruction css start
 */
