@@ -3,20 +3,19 @@
          class="tab-pane container"
          aria-live="polite"
          aria-relevant="all"
-         data-bind="if: $root.selectedLink() == 'Users',hasFocus: $root.selectedLink() == 'Users', attr:{'aria-hidden':$root.selectedLink() == 'Users' } ">
+         data-bind="if: $root.selectedLinkData() != null,hasFocus: $root.selectedLinkData() == null, attr:{'aria-hidden':$root.selectedLink() != 'Users' } ">
+         <h1>Accessible Users data table example  </h1>
         <table data-bind="with: selectedLinkData, css:{table:true, 'table-bordered': true, well:true}">
                 <caption>List of System Users</caption>
           <thead>
             <tr>
-              <th scope="col">ID</th>
               <th scope="col">Name</th>
               <th scope="col">Date</th>
             </tr>
           </thead>
           <tbody data-bind="foreach: users">
               <tr data-bind="click: $root.goToUser">
-                <th data-bind="text:id" scope="row"> </th>
-                <td data-bind="text:name"> </td>
+                <th data-bind="text:name" scope="row"> </th>
                 <td data-bind="text:date"> </td>
               </tr>     
           </tbody>

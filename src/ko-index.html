@@ -12,13 +12,13 @@
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/knockout/knockout.debug.js"></script>
   <script src="assets/vendor/knockout/sammy.js"></script>
-  <script src="./assets/js/ko/spa.js"></script>
+  <script src="assets/js/ko/spa.js"></script>
 </head>
 
 
 <body role="application">
   <div>
-    <a href="#Main" aria-hidden="false" id="skipNav">Skip Navigation </a>
+    <!-- <a data-bind="attr: {href: $root.skipTo()}" aria-hidden="false" id="skipNav">Skip Navigation </a> -->
   </div>      
     <!-- Fixed navbar -->
     @@include('partials/ko/ko-nav.html')
@@ -28,14 +28,14 @@
   </header>
 
   <main role="main" id="Main">
-  @@include('partials/ko/main.html')
+    @@include('partials/ko/main.html')
     <!-- Users list-->
     @@include('partials/ko/users-list.html')
     <!-- End users list-->
 
-    <!-- User details -->
-     @@include('partials/ko/userdetails.html')
-    <!-- End User details-->     
+      <!-- User details -->
+       @@include('partials/ko/userdetails.html')
+      <!-- End User details-->     
 
     <!-- Forms -->
     @@include('partials/ko/forms.html')
@@ -46,12 +46,10 @@
     <!-- End Tables--> 
   </main>
 
-
-
-
   <!-- FOOTER -->
   <footer id="f">
   
-  </footer><!-- Footer -->
+  </footer>
+  <!-- Footer -->
 </body>
 </html>

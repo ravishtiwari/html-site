@@ -1,9 +1,10 @@
 <div aria-label="User details"
-         id="user" role="document"
-         class="tab-pane container"
-         aria-live="polite"
-         aria-relevant="all"
-         data-bind="hasFocus: $root.selectedUserData() != null, attr:{'aria-hidden':$root.selectedUserData() != null } ">
+     id="user" role="presentation"
+     class="tab-pane container"
+     aria-live="polite"
+     aria-relevant="all"
+     data-bind="hasFocus: $root.selectedUserData() != null, attr:{'aria-hidden':$root.selectedUserData() != null } ">
+
       <div class="container panel-body"  data-bind="with: selectedUserData">
         <div class="row" tabindex="0">
           <div class="col-md-2  pull-left">User ID</div>
@@ -25,4 +26,4 @@
           <div class="col-md-9"  data-bind="text: age"></div>
         </div>
       </div>            
-</div>    
+  </div>    
