@@ -34,14 +34,14 @@ $(document).ready(function() {
             self.selectedUserData(null);
             self.tableData(null);
             $.get('/services/users.json', { link: params.link }, self.selectedLinkData);
-          	window.setTimeout(function(){$("#userList").find("table:first").attr("tabindex","-1").focus()}, 1000);  
+          	window.setTimeout(function(){$("#userList").find("h1:first").attr("tabindex","-1").focus()}, 10);  
 		};
 
 		self.loadUserDetails = function (params) {
 			$.get('/services/'+params.link.toLowerCase()+'/'+params.nick+'.json', 
                     	{ nick: params.nick }, 
                     	self.selectedUserData);
-			window.setTimeout(function(){$("body").find("#user").attr("tabindex","-1").focus()}, 1000);
+			window.setTimeout(function(){$("body").find("#user").attr("tabindex","-1").focus()}, 10);
 		};
 
 		self.loadFormsPage = function(){
@@ -53,7 +53,7 @@ $(document).ready(function() {
             self.selectedLinkData(null);
             self.selectedLink(params.link);
             $.get('/services/table.html', {}, self.tableData);
-           	// window.setTimeout(function(){$("#tables").find("table:first").attr("tabindex","-1").focus()}, 1000);
+           	window.setTimeout(function(){$("#tables").find("table:first").attr("tabindex","-1").focus()}, 10);
 		
 		};
 
@@ -85,7 +85,7 @@ $(document).ready(function() {
 
                 //Default  Route
                 this.get('', function () { 
-                	self.goToLink('default')
+                	self.goToLink('');
                 	//this.app.runRoute('get', '#Users') 
             	});
             }).run();
