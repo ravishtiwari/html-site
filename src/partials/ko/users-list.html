@@ -1,7 +1,7 @@
 <div aria-label="Users list"
          id="userList" role="document"
          class="tab-pane container"
-         aria-live="rude"
+         aria-live="polite"
          aria-relevant="all"
          data-bind="if: $root.selectedLink() == 'Users',hasFocus: $root.selectedLink() == 'Users', attr:{'aria-hidden':$root.selectedLink() == 'Users' } ">
         <table data-bind="with: selectedLinkData, css:{table:true, 'table-bordered': true, well:true}">

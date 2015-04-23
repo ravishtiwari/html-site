@@ -18,7 +18,7 @@ $(document).ready(function() {
             self.selectedUserData(null);
             self.selectedLinkData(null);
             // $.get('/services/main.html', {}, self.defaultData);
-           	//window.setTimeout(function(){$("body").find("#default > h1:first").attr("tabindex","-1").focus()}, 1000);
+           	// window.setTimeout(function(){$("body").find("#default > h1:first").attr("tabindex","-1").focus()}, 1000);
 		};
 		self.goToLink = function(link) {
 			location.hash = link;
@@ -32,6 +32,7 @@ $(document).ready(function() {
 		self.loadUserData = function(params){
 			self.selectedLink(params.link);
             self.selectedUserData(null);
+            self.tableData(null);
             $.get('/services/users.json', { link: params.link }, self.selectedLinkData);
           	window.setTimeout(function(){$("#userList").find("table:first").attr("tabindex","-1").focus()}, 1000);  
 		};
@@ -52,7 +53,7 @@ $(document).ready(function() {
             self.selectedLinkData(null);
             self.selectedLink(params.link);
             $.get('/services/table.html', {}, self.tableData);
-           	window.setTimeout(function(){$("#tables").find("table:first").attr("tabindex","-1").focus()}, 1000);
+           	// window.setTimeout(function(){$("#tables").find("table:first").attr("tabindex","-1").focus()}, 1000);
 		
 		};
 
@@ -88,7 +89,6 @@ $(document).ready(function() {
                 	//this.app.runRoute('get', '#Users') 
             	});
             }).run();
-
 	}
 	ko.applyBindings(new SPA());
 });
