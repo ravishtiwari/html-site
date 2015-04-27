@@ -3,7 +3,7 @@
          class="tab-pane container"
          aria-live="polite"
          aria-relevant="all"
-         data-bind="if: $root.selectedLinkData() != null,hasFocus: $root.selectedLinkData() == null, attr:{'aria-hidden':$root.selectedLink() != 'Users' } ">
+         data-bind="if: $root.displayUsersList(),hasFocus: $root.displayUsersList(), attr:{'aria-hidden':!$root.displayUsersList() } ">
          <h1>Accessible Users data table example  </h1>
         <table data-bind="with: selectedLinkData, css:{table:true, 'table-bordered': true, well:true}">
                 <caption>List of System Users</caption>

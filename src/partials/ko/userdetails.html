@@ -3,7 +3,7 @@
      class="tab-pane container"
      aria-live="polite"
      aria-relevant="all"
-     data-bind="hasFocus: $root.selectedUserData() != null, attr:{'aria-hidden':$root.selectedUserData() != null } ">
+     data-bind="hasFocus: $root.displayUserDetails(), attr:{'aria-hidden':!$root.displayUserDetails() } ">
 
       <div class="container panel-body"  data-bind="with: selectedUserData">
         <div class="row" tabindex="0">

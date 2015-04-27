@@ -4,6 +4,6 @@
 	aria-live="polite"
 	aria-atomic="true"
 	aria-relevant="all"
-	data-bind="hasFocus: $root.selectedLink() == 'Table', html: tableData()" id="tables">
+	data-bind="hasFocus: $root.displayTable(), html: $root.tableData(), attr:{'aria-hidden': $root.displayTable()}" id="tables">
 
 	</div>

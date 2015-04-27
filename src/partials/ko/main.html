@@ -1,7 +1,7 @@
 <div aria-label="default document"
 	role="document"
 	class="tab-pane container"
-	data-bind="hasFocus: $root.displayDefaultData(), if: $root.displayDefaultData()" id="default">
+	data-bind="hasFocus: $root.displayDefaultData(), if: $root.displayDefaultData(), attr:{'aria-hidden': !$root.displayDefaultData()}" id="default">
 		<h1>
 			<span class="part">The Basics: </span> 
 			Incorporating Accessibility Early and Throughout
