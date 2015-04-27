@@ -10,6 +10,8 @@
   <title>Accessibility Test  : HTML Site : Knockout Home Page</title>
   <link href="assets/css/main.css" rel="stylesheet" />  
   <script src="assets/vendor/jquery/jquery.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
+
   <script src="assets/vendor/knockout/knockout.debug.js"></script>
   <script src="assets/vendor/knockout/sammy.js"></script>
   <script src="assets/js/ko/spa.js"></script>
@@ -50,6 +52,11 @@
   <footer id="f">
   
   </footer>
+  <script>
+  $(document).ready(function(){ //Run this function when the page is finished loading.
+     //Get the element with the id="sign-up" and run the validation plugin on it at default settings.
+  });
+</script>
   <!-- Footer -->
 </body>
 </html>

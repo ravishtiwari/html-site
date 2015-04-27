@@ -1,0 +1,78 @@
+<div class="container">
+		<h1> Please Use the form below and let us know how accessible it is.</h1>
+	    <div class="row">
+	        <form role="form" id="contactForm">
+	            <div class="col-lg-6">
+	                <div class="well well-sm" aria-hidden="true">
+	                	<strong><span class="glyphicon glyphicon-asterisk"></span>Required Field</strong>
+                	</div>
+	                <div class="form-group">
+	                    <label for="InputName" id="InputName-ariaLabel">Enter Name</label>
+	                    <div class="input-group">
+	                        <input type="text" class="form-control" 
+	                        		name="InputName" id="InputName" 
+	                        		aria-labelledby="InputName-ariaLabel" placeholder="Enter Name" 
+	                        		required aria-required="true">
+	                        <span class="input-group-addon" aria-hidden="true">
+	                        	<span class="glyphicon glyphicon-asterisk"></span>
+	                        </span>
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label for="InputEmail" id="InputEmail-ariaLabel">Enter Email</label>
+	                    <div class="input-group">
+	                        <input 
+	                        	type="email" class="form-control" 
+	                        	id="InputEmail" name="InputEmail"
+	                        	aria-labelledby="InputEmail-ariaLabel" title="Email. This field is required"
+	                        	placeholder="Enter Email" required aria-required="true">
+	                        <span class="input-group-addon"  aria-hidden="true"><span class="glyphicon glyphicon-asterisk"></span></span>
+	                    </div>
+	                </div>
+	                <div class="form-group">
+	                    <label for="InputEmailConfirm" id="EmailConfirm-ariaLabel">Confirm Email</label>
+	                    <div class="input-group">
+	                        <input type="email" class="form-control" 
+	                        		id="InputEmailConfirm" name="EmailConfirm"
+	                        		title="Email Confirmation. should match to email provided" 
+	                        		placeholder="Confirm Email" required aria-required="true">
+	                        <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-asterisk"></span></span>
+	                    </div>
+	                </div>
+
+	                <div class="form-group">
+	                    <label for="dateofbirth" id="dateofbirth-ariaLabel">date of birth</label>
+	                    <div class="input-group">
+	                    	<input id="dateofbirth" name="dateofbirth" 
+	                    			type="date" aria-labelledby="dateofbirth-ariaLabel" 
+	                    			class="form-control required" title="Date of birth. This is a required field" 
+	                    			required aria-required="true">
+	                        
+	                        <span class="input-group-addon" aria-hidden="true"><span class="glyphicon glyphicon-asterisk"></span></span>
+	                    </div>
+	                </div>
+	                
+
+	                <div class="form-group">
+	                    <label for="InputMessage">Enter Message</label>
+	                    <div class="input-group">
+	                        <textarea name="InputMessage" id="InputMessage" class="form-control" rows="5" title="Enter your messages. optional" ></textarea>
+	                    </div>
+	                </div>
+	                <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right">
+	            </div>
+	        </form>	        
+	    </div>
+	</div>
+
+	<script>
+	$(document).ready(function(){
+	   $("#contactForm").validate({
+	        errorPlacement: function(error, element) {
+	                error.appendTo("label[for="+$(element).attr('id')+"]");
+	        },
+	        errorElement: "em"
+	   });
+	   $('form').removeAttr('novalidate');
+	});
+</script>
