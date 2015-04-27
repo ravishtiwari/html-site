@@ -1,20 +1,16 @@
-<nav class="navbar navbar-default" role="navigation" aria-hidden="false"
-          data-bind="hasFocus: navlinks.length>0">
-          <ul  data-bind="css: {'nav':true, 'navbar-nav':true, 'navbar-left':true}" > 
-            <li data-bind="css: {active: ($data == $root.selectedLink())}" role="menuitem">
-            <a href="#Users"> Users
-            </a>
-          </li>
-          </ul>
-     <ul data-bind="foreach: navlinks, css: {'nav':true, 'navbar-nav':true, 'navbar-left':true}" 
-         aria-live="polite"
-         aria-relevant="all" role="menubar">
-          <li data-bind="css: {active: ($data == $root.selectedLink())}" role="menuitem">
-            <a 
-	            data-bind="
-	            text: $data, attr: { href: '#' + $data, 'data-target': '#' + $data, 'aria-selected': $data == $root.selectedLink()}," 
-	            >
-            </a>
-          </li>
-    </ul>      
+<nav class="navbar navbar-default" role="navigation" aria-hidden="false">
+    <ul role="menubar" data-bind="css: {'nav':true, 'navbar-nav':true, 'navbar-left':true}" >
+      <li  data-bind="css: {active: ('Users' == $root.selectedLink())}" >
+        <a role="menuitem" href="#Users"  data-bind="attr: { 'aria-selected': 'Users' == $root.selectedLink() }">Users</a>
+      </li>
+      
+      <li  data-bind="css: {active: ('Forms' == $root.selectedLink())}" > 
+        <a role="menuitem" href="#Forms" data-bind="attr: { 'aria-selected': 'Forms' == $root.selectedLink() }">Forms</a>
+      </li>
+
+      <li data-bind="css: {active: ('Table'== $root.selectedLink())}" > 
+        <a role="menuitem" href="#Table"  data-bind="attr: { 'aria-selected': 'Table' == $root.selectedLink() }">Table</a>
+      </li>
+    </ul>
+           
 </nav>
